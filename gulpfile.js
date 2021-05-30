@@ -43,10 +43,7 @@ gulp.task( 'sass', function() {
 
 // reveal.js slideshow functionality.
 // Define CSS and JS source and distribution directories.
-const revealCssSrc  = [
-  './node_modules/reveal.js/css/reveal.scss',
-  './src/sass/reveal.scss'
-];
+const revealCssSrc  = './src/sass/reveal/*.scss';
 const revealCssDist = './dist/css';
 
 const revealJsSrc = './node_modules/reveal.js/dist/reveal.js';
@@ -56,7 +53,6 @@ const revealJsDist = './dist/js';
 gulp.task( 'reveal', function() {
   const revealCss = gulp.src( revealCssSrc )
     .pipe( sass( { outputStyle: 'compressed' } ) )
-    .pipe( concat( 'reveal.min.css' ) )
     .pipe( gulp.dest( revealCssDist ) );
 
   const revealJs = gulp.src( revealJsSrc )
