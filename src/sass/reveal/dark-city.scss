@@ -1,0 +1,9 @@
+@use '../color';
+
+@use 'reveal' with (
+  $bg: color.$raisin,
+  $bg-img: url('/2021-pcaaca/images/bg-spirals.png'),
+  $color: color.$foam,
+  $link: color.$beau-blue,
+  $controls: color.$beau-blue
+);
