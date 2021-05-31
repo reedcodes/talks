@@ -11,10 +11,10 @@
 
 
 [data-id*="dark-city-title"] {
-  display: block;
+  margin-block: 0;
   font-style: normal;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: 'Pangolin', cursive;
   letter-spacing: 1.5rem;
   text-transform: uppercase;
@@ -25,4 +25,8 @@
     -0.25rem 0 1rem rgba(200,200,200, 0.5);
 
   i { font-style: normal; }
+}
+
+[data-id*="thanks"] {
+  margin-block: 0;
 }
