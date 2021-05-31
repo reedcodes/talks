@@ -7,3 +7,22 @@
   $link: color.$beau-blue,
   $controls: color.$beau-blue
 );
+
+
+
+[data-id*="dark-city-title"] {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: 'Pangolin', cursive;
+  letter-spacing: 1.5rem;
+  text-transform: uppercase;
+  text-shadow:
+    0.25rem 0 1rem rgba(200,200,200, 0.5),
+    0 0.25rem 1rem rgba(200,200,200, 0.5),
+    0 -0.25rem 1rem rgba(200,200,200, 0.5),
+    -0.25rem 0 1rem rgba(200,200,200, 0.5);
+
+  i { font-style: normal; }
+}
