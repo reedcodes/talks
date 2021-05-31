@@ -10,12 +10,17 @@
 
 
 
+// Title.
+.title {
+  span { display: block; }
+}
+
 [data-id*="dark-city-title"] {
   margin-block: 0;
   font-style: normal;
   font-weight: bold;
   font-size: 2rem;
-  font-family: 'Pangolin', cursive;
+  font-family: 'Pangolin', 'Helvetica', 'Arial', sans-serif;
   letter-spacing: 1.5rem;
   text-transform: uppercase;
   text-shadow:
@@ -27,6 +32,9 @@
   i { font-style: normal; }
 }
 
+
+
+// End: thank you.
 [data-id*="thanks"] {
   margin-block: 0;
 }

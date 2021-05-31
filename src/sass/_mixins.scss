@@ -5,8 +5,8 @@
 @mixin fluid-type(
   $properties,
   $min-value: 16px,
-  $max-value: 48px,
-  $min-screen: 540px,
+  $max-value: 32px,
+  $min-screen: 320px,
   $max-screen: 1200px
 ) {
   & {
