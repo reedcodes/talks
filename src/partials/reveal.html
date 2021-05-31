@@ -1,15 +1,22 @@
-<script src="/dist/js/reveal.min.js"></script>
+<script src="/dist/js/reveal/reveal.min.js"></script>
 <script>
   Reveal.initialize(
     {
+      // Plugins.
+      // dependencies: [
+      //   { src: '/dist/js/reveal/plugin/notes/notes.js', async: true }
+      // ],
+
+      // Config options.
+      controlsLayout: 'edges',
+      controlsBackArrows: 'visible',
       disableLayout: true,
       progress: false,
+      showSlideNumber: 'speaker',
       hash: true,
       hashOneBasedIndex: true,
       fragmentInURL: false,
-      mouseWheel: true,
-      minScale: 0.5,
-      maxScale: 1.0
+      mouseWheel: true
     }
   );
 </script>

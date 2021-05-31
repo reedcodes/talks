@@ -46,8 +46,12 @@ gulp.task( 'sass', function() {
 const revealCssSrc  = './src/sass/reveal/*.scss';
 const revealCssDist = './dist/css';
 
-const revealJsSrc = './node_modules/reveal.js/dist/reveal.js';
-const revealJsDist = './dist/js';
+const revealJsSrc = [
+  './node_modules/reveal.js/dist/reveal.js',
+  // './node_modules/reveal.js/plugin/notes/**/*.*'
+];
+const revealJsBase = './node_modules/reveal.js';
+const revealJsDist = './dist/js/reveal';
 
 // Task to compile reveal.js files.
 gulp.task( 'reveal', function() {
@@ -55,7 +59,7 @@ gulp.task( 'reveal', function() {
     .pipe( sass( { outputStyle: 'compressed' } ) )
     .pipe( gulp.dest( revealCssDist ) );
 
-  const revealJs = gulp.src( revealJsSrc )
+  const revealJs = gulp.src( revealJsSrc, { base: revealJsBase } )
     .pipe( babel( { presets: [
       [ 'minify', { builtIns: false } ]
     ] } ) )
