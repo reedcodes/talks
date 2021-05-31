@@ -41,6 +41,7 @@ a {
 
 img[src*='reedcodes'] {
   width: auto;
+  max-width: 100%;
   max-height: 75%;
   box-shadow: -0.25vw 0.25vw 0 0 color.$raisin;
   border-radius: 50%;
@@ -143,11 +144,10 @@ img[src*='reedcodes'] {
   // Columns.
   .columns {
     display: grid;
+    grid-template-columns: repeat( auto-fit, minmax( 350px, 1fr ) );
     grid-column-gap: 4vw;
     justify-items: start;
     align-items: center;
-
-    &-2 { grid-template-columns: auto 1fr; }
   }
 
   // The Title.
