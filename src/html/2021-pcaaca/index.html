@@ -8,13 +8,9 @@
   <div class="reveal">
     <div class="slides">
 
-      <section data-auto-animate>
-        <header class="title" aria-hidden="true">
-          <p class="interstitial" data-id="dark-city-title"><i>Dark City</i></p>
-        </header>
-      </section>
+      <partial src="intro.html"></partial>
 
-      <section data-auto-animate>
+      <section>
         <header class="title">
           <h1><span>“Everything You Remember</span> <span>Never Really Happened”</span></h1>
           <p><span>Emotional Abuse and Untrusted Experience</span> <span>in Alex Proyas’</span></p>
@@ -22,19 +18,28 @@
         </header>
       </section>
 
-      <section>
-        <p>Slide One with some things</p>
+      <section data-markdown>
+        <script type="text/template">
+          What does it mean to be human? <!-- .element: class="r-fit-text" -->
+        </script>
       </section>
 
-      <section>
-        <p>Slide Two</p>
-        <aside class="notes">
-          <p>My speaker notes</p>
-        </aside>
+      <section data-markdown>
+        <script type="text/template">
+          Here's a slide with speaker notes
+
+          <aside class="notes" data-markdown>
+            Speaker notes go here
+          </aside>
+        </script>
       </section>
 
-      <section data-background-image="images/screen-anna-pier.png" />
-        <p>Slide 3</p>
+      <section data-markdown
+        data-transition-speed="slow"
+        data-background-image="images/screen-anna-pier.png">
+        <script type="text/template">
+          Slide with the background image
+        </script>
       </section>
 
       <partial src="thanks.html" conf="2021-pcaaca"></partial>

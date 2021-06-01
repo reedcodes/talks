@@ -61,7 +61,7 @@ gulp.task( 'assets', function() {
 
 
 // Define CSS source and distribution directories.
-const cssSrc  = './src/sass/screen.scss';
+const cssSrc  = './src/sass/**/*.scss';
 const cssDist = './dist/css';
 
 // Task to compile CSS files.
@@ -75,22 +75,14 @@ gulp.task( 'sass', function() {
 
 
 // reveal.js slideshow functionality.
-// Define CSS and JS source and distribution directories.
-const revealCssSrc  = './src/sass/reveal/*.scss';
-const revealCssDist = './dist/css';
-
+// Define JS source and distribution directories.
 const revealJsSrc      = './node_modules/reveal.js/dist/reveal.js';
 const revealJsPlugSrc  = './node_modules/reveal.js/plugin/**/*';
 const revealJsPlugBase = './node_modules/reveal.js/plugin';
-const revealJsDist     = './dist/js/reveal';
+const revealJsDist     = './dist/js';
 
 // Task to compile reveal.js files.
 gulp.task( 'reveal', function() {
-  // Sass-ify the default styles plus any customizations.
-  const revealCss = gulp.src( revealCssSrc )
-    .pipe( sass( { outputStyle: 'compressed' } ) )
-    .pipe( gulp.dest( revealCssDist ) );
-
   // Minify the basic reveal.js script.
   const revealJs = gulp.src( revealJsSrc )
     .pipe( babel( { presets: [
@@ -105,7 +97,7 @@ gulp.task( 'reveal', function() {
     { base: revealJsPlugBase }
   ).pipe( gulp.dest( revealJsDist ) );
 
-  return revealCss, revealJs, revealJsPlugin;
+  return revealJs, revealJsPlugin;
 });
 
 

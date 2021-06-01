@@ -7,8 +7,9 @@ $fa-font-path: '../webfonts';
 
 @use './node_modules/reveal.js/css/reveal.scss';
 
-@use '../color';
-@use '../mixins' as mix;
+@use 'color';
+@use 'mixins' as mix;
+@use 'mq';
 
 
 
@@ -41,12 +42,11 @@ a {
 
 img[src*='reedcodes'] {
   width: auto;
-  max-width: 100%;
-  max-height: 75%;
+  max-width: 350px;
+  max-height: 100%;
   box-shadow: -0.25vw 0.25vw 0 0 color.$raisin;
   border-radius: 50%;
   border: 0.25vw solid color.$raisin;
-  border-radius: 50%;
 }
 
 
@@ -66,7 +66,10 @@ img[src*='reedcodes'] {
 
 .reveal {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns:
+    minmax( 6vw, 1fr )
+    minmax( 320px, 88vw )
+    minmax( 6vw, 1fr );;
   grid-template-rows: 1fr auto;
   width: 100vw;
   max-width: 100%;
@@ -82,7 +85,7 @@ img[src*='reedcodes'] {
 
   .slides {
     position: relative;
-    grid-column: 1/2;
+    grid-column: 2/3;
     grid-row: 1/2;
     display: grid;
     justify-items: center;
@@ -91,8 +94,7 @@ img[src*='reedcodes'] {
     max-width: 100%;
     height: 100%;
     max-height: 100%;
-    padding-inline: 5vw;
-    padding-block: 2vh;
+    padding-block: 3vh;
     text-align: left;
 
     > section {
@@ -105,57 +107,60 @@ img[src*='reedcodes'] {
   .controls {
     color: $controls;
   }
+}
 
-  // Columns.
-  .columns {
+
+
+// Columns.
+.columns {
+  display: grid;
+  grid-column-gap: 4vw;
+  justify-items: start;
+  align-items: center;
+
+  @include mq.media('>md') {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+// The Title.
+.title {
+  text-align: center;
+}
+
+
+
+// Bio info, begin and end.
+.bio {
+  dl {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax( 350px, 1fr ) );
-    grid-column-gap: 4vw;
-    justify-items: start;
+    grid-template-columns: 1fr auto;
+    grid-gap: 0.75rem;
     align-items: center;
+    margin-block: 0;
+    font-weight: 500;
   }
 
-  // The Title.
-  .title {
-    text-align: center;
-  }
+  dt { font-size: 1.5rem; }
+  dd { margin-inline-start: 0; }
 
-  // The End.
-  .r-fit-text[data-id="thanks"] {
-    margin-block: 0 0.5rem;
-  }
-
-  .fin {
-    dl {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      grid-gap: 0.75rem;
-      align-items: center;
-      margin-block: 0;
+  dt, dd {
+    &:first-of-type {
+      margin-block-end: 1rem;
       font-weight: 700;
-    }
-
-    dt {
       font-size: 1.5rem;
-    }
-
-    dd {
-      margin-inline-start: 0;
-
-      &:first-of-type {
-        font-size: 1.5rem;
-      }
     }
   }
 }
 
 
 
+// Persistent footer.
 footer {
   z-index: 1;
+  grid-column: 2/3;
   grid-row: 2/3;
   width: 100%;
-  padding-inline: 5vw;
   background-color: rgba(0,0,0,0.1);
 
   ul {
