@@ -2,8 +2,6 @@
 
 // Define libraries.
 const gulp   = require( 'gulp' ),
-      babel  = require( 'gulp-babel' ),
-      concat = require( 'gulp-concat' ),
       sass   = require( 'gulp-dart-sass' ),
       html   = require( 'gulp-html-partial' );
 
@@ -14,7 +12,8 @@ const htmlSrc      = './src/html/**/*.html';
 const htmlAssetSrc = [
   './src/html/**/*.png',
   './src/html/**/*.jpg',
-  './src/html/**/*.pdf'
+  './src/html/**/*.pdf',
+  './src/html/**/*.md'
 ];
 const htmlDist     = './';
 
@@ -76,7 +75,7 @@ gulp.task( 'sass', function() {
 
 // reveal.js slideshow functionality.
 // Define JS source and distribution directories.
-const revealJsSrc      = './node_modules/reveal.js/dist/reveal.js';
+const revealJsSrc      = './node_modules/reveal.js/dist/reveal.js*';
 const revealJsPlugSrc  = './node_modules/reveal.js/plugin/**/*';
 const revealJsPlugBase = './node_modules/reveal.js/plugin';
 const revealJsDist     = './dist/js';
@@ -85,10 +84,6 @@ const revealJsDist     = './dist/js';
 gulp.task( 'reveal', function() {
   // Minify the basic reveal.js script.
   const revealJs = gulp.src( revealJsSrc )
-    .pipe( babel( { presets: [
-      [ 'minify', { builtIns: false } ]
-    ] } ) )
-    .pipe( concat( 'reveal.min.js' ) )
     .pipe( gulp.dest( revealJsDist ) );
 
   // Copy the plugin folders to the js directory.
