@@ -10,8 +10,9 @@ const gulp   = require( 'gulp' ),
 
 
 // Define HTML source and distribution directories.
-const htmlSrc  = './src/html/**/*.html';
-const htmlDist = './';
+const htmlSrc      = './src/html/**/*.html';
+const htmlAssetSrc = './src/html/**/images/*'
+const htmlDist     = './';
 
 // Task to compile HTML files.
 gulp.task( 'html', function () {
@@ -22,7 +23,34 @@ gulp.task( 'html', function () {
       variablePrefix: '@@'
     } ) )
     .pipe( gulp.dest( htmlDist ) );
-  return htmlBuild;
+  
+  const htmlAssets = gulp.src( htmlAssetSrc )
+    .pipe( gulp.dest( htmlDist ) );
+  
+  return htmlBuild, htmlAssets;
+});
+
+
+
+// Define other static assets source and distribution directories.
+const faSrc  = './node_modules/@fortawesome/fontawesome-free/webfonts/**/*';
+const faDist = './dist/webfonts';
+
+const assetBase = './src';
+const assetSrc  = [
+  './src/images/**/*'
+];
+const assetDist = './dist';
+
+// Task to copy assets.
+gulp.task( 'assets', function() {
+  const faBuild = gulp.src( faSrc )
+    .pipe( gulp.dest( faDist ) );
+  
+  const assetBuild = gulp.src( assetSrc, { base: assetBase } )
+    .pipe( gulp.dest( assetDist ) );
+  
+  return faBuild, assetBuild;
 });
 
 
@@ -72,4 +100,4 @@ gulp.task( 'reveal', function() {
 
 
 // Gulp tasks.
-gulp.task( 'default', gulp.series( 'html', 'sass', 'reveal' ) );
+gulp.task( 'default', gulp.series( 'html', 'assets', 'sass', 'reveal' ) );
