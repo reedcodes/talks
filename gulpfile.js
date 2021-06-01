@@ -11,7 +11,11 @@ const gulp   = require( 'gulp' ),
 
 // Define HTML source and distribution directories.
 const htmlSrc      = './src/html/**/*.html';
-const htmlAssetSrc = './src/html/**/images/*'
+const htmlAssetSrc = [
+  './src/html/**/*.png',
+  './src/html/**/*.jpg',
+  './src/html/**/*.pdf'
+];
 const htmlDist     = './';
 
 // Task to compile HTML files.
