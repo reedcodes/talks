@@ -23,10 +23,10 @@ gulp.task( 'html', function () {
       variablePrefix: '@@'
     } ) )
     .pipe( gulp.dest( htmlDist ) );
-  
+
   const htmlAssets = gulp.src( htmlAssetSrc )
     .pipe( gulp.dest( htmlDist ) );
-  
+
   return htmlBuild, htmlAssets;
 });
 
@@ -44,12 +44,13 @@ const assetDist = './dist';
 
 // Task to copy assets.
 gulp.task( 'assets', function() {
-  const faBuild = gulp.src( faSrc )
-    .pipe( gulp.dest( faDist ) );
-  
-  const assetBuild = gulp.src( assetSrc, { base: assetBase } )
-    .pipe( gulp.dest( assetDist ) );
-  
+  const faBuild = gulp.src( faSrc ).pipe( gulp.dest( faDist ) );
+
+  const assetBuild = gulp.src(
+    assetSrc,
+    { base: assetBase }
+  ).pipe( gulp.dest( assetDist ) );
+
   return faBuild, assetBuild;
 });
 
@@ -74,27 +75,33 @@ gulp.task( 'sass', function() {
 const revealCssSrc  = './src/sass/reveal/*.scss';
 const revealCssDist = './dist/css';
 
-const revealJsSrc = [
-  './node_modules/reveal.js/dist/reveal.js',
-  // './node_modules/reveal.js/plugin/notes/**/*.*'
-];
-const revealJsBase = './node_modules/reveal.js';
-const revealJsDist = './dist/js/reveal';
+const revealJsSrc      = './node_modules/reveal.js/dist/reveal.js';
+const revealJsPlugSrc  = './node_modules/reveal.js/plugin/**/*';
+const revealJsPlugBase = './node_modules/reveal.js/plugin';
+const revealJsDist     = './dist/js/reveal';
 
 // Task to compile reveal.js files.
 gulp.task( 'reveal', function() {
+  // Sass-ify the default styles plus any customizations.
   const revealCss = gulp.src( revealCssSrc )
     .pipe( sass( { outputStyle: 'compressed' } ) )
     .pipe( gulp.dest( revealCssDist ) );
 
-  const revealJs = gulp.src( revealJsSrc, { base: revealJsBase } )
+  // Minify the basic reveal.js script.
+  const revealJs = gulp.src( revealJsSrc )
     .pipe( babel( { presets: [
       [ 'minify', { builtIns: false } ]
     ] } ) )
     .pipe( concat( 'reveal.min.js' ) )
     .pipe( gulp.dest( revealJsDist ) );
 
-  return revealCss, revealJs;
+  // Copy the plugin folders to the js directory.
+  const revealJsPlugin = gulp.src(
+    revealJsPlugSrc,
+    { base: revealJsPlugBase }
+  ).pipe( gulp.dest( revealJsDist ) );
+
+  return revealCss, revealJs, revealJsPlugin;
 });
 
 

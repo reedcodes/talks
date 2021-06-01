@@ -1,11 +1,12 @@
 <script src="/dist/js/reveal/reveal.min.js"></script>
+<script src="/dist/js/reveal/notes/notes.js"></script>
 <script>
   Reveal.initialize(
     {
       // Plugins.
-      // dependencies: [
-      //   { src: '/dist/js/reveal/plugin/notes/notes.js', async: true }
-      // ],
+      plugins: [
+        RevealNotes
+      ],
 
       // Config options.
       controlsLayout: 'edges',
