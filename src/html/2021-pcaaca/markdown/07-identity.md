@@ -59,7 +59,7 @@ From the first moment Murdoch finds the postcard in the suitcase, he is on a que
 
 ---
 
-**video of murdoch goes here**
+<!-- .slide: data-background-image="video/murdoch-names.gif" -->
 
 Notes:
 Upon leaving the hotel, the only “facts” he knows are the existence of Shell Beach from the postcard, and the part of his name — J. Murdoch — that was written in the guest register; Murdoch spends several minutes introducing himself to himself through the store windows, trying on different names to feel if any of them are right. His name, and everything about him, has been forced onto him by The Strangers, whose intentions for the city’s inhabitants supersede Murdoch’s individuality, similar to how emotionally abusive parents’ standards and expectations explicitly or implicitly communicate to their children that their own agency and self-worth is contingent on how well they adhere to those standards and expectations.

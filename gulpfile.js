@@ -12,6 +12,7 @@ const htmlSrc      = './src/html/**/*.html';
 const htmlAssetSrc = [
   './src/html/**/*.png',
   './src/html/**/*.jpg',
+  './src/html/**/*.gif',
   './src/html/**/*.pdf',
   './src/html/**/*.md'
 ];
