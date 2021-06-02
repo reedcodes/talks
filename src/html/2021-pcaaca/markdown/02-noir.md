@@ -1,9 +1,35 @@
-<div class="r-stack" markdown="1">
+<!-- .slide data-auto-animate -->
 
 film noir <!-- .element: class="r-fit-text" -->
 
-![crime scene inside the motel](images/screen-motel-crime.png) <!-- .element: class="fragment" -->
+Notes:
+- film noir tropes
+  - displaced hero with brooding love interest
+  - hard-boiled detective
+  - shady doctor
+  - mysterious villains
+  - dingy and desolate city of dark empty streets, smoky nightclubs, and seedy hotels
 
-![crime scene outside the automat](images/screen-automat-crime.png) <!-- .element: class="fragment" -->
+---
 
-</div>
+<!-- .slide data-auto-animate -->
+
+film noir <!-- .element: class="r-fit-text" -->
+
+science fiction <!-- .element: class="r-fit-text" -->
+
+Notes:
+- science fiction cyberpunk themes
+  - bleak future dominated by technology
+  - blurred lines between real and artificial
+
+---
+
+<!-- .slide: data-background-image="images/screen-automat-crime.png" -->
+
+Notes:
+- mismatched mise-en-scène elements
+- fake retro nostalgia
+- underlit sets, constant night
+- disorients both protagonist and audience
+- neither can trust anything they are experiencing
