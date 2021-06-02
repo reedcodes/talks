@@ -7,7 +7,7 @@ Notes:
 
 ---
 
-> “the panopticon is still a prison” <!-- .element: class="r-fit-text" -->
+> the panopticon is still a prison <!-- .element: class="r-fit-text" -->
 >
 > <small class="citation">(Fitch, “Dark City and The Truman Show: Surveillance and the Destabilization of Identity” 15)</small>
 

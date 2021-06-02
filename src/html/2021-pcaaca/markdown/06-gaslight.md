@@ -9,14 +9,15 @@ Notes:
 
 Three stages to gaslighting:
 
-1. disbelief at what the gaslighter is saying or trying to say
-2. defense of self and self-truth as it conflicts with the gaslighter’s statements
-3. depression and self-doubt as the gaslighter’s reality takes over
+1. disbelief at what the gaslighter is saying or trying to say <!-- .element: class="fragment" -->
+2. defense of self and self-truth as it conflicts with the gaslighter’s statements <!-- .element: class="fragment" -->
+3. depression and self-doubt as the gaslighter’s reality takes over <!-- .element: class="fragment" -->
 
 <small class="citation">Sterns qtd. in Fuchsman, "Gaslighting" 76</small>
 
 Notes:
-Knight and Knight: If you can’t remember who you know or what you value, how will you be able to decide what to do? Not to mention, if you don’t remember who you are, how will you be able to make any practical decisions except as contingent responses to circumstances you don’t fully understand? (29)
+- 3 stages...
+- Knight and Knight: If you can’t remember who you know or what you value, how will you be able to decide what to do? Not to mention, if you don’t remember who you are, how will you be able to make any practical decisions except as contingent responses to circumstances you don’t fully understand? (29)
 
 ---
 
@@ -24,13 +25,13 @@ Knight and Knight: If you can’t remember who you know or what you value, how w
 
 ![Mr. Hand](images/profile-mr-hand.jpg)
 
-<blockquote class="fragment" markdown="1">
+<div class="fragment" markdown="1">
 
 There is no escape. The city is ours. We made it... We fashioned this city on stolen memories, different eras, different pasts, all rolled into one. Each night we revise it, refine it, in order to learn [...] about you, Mr. Murdoch... what makes you human.
 
 <small class="citation"><cite>Dark City</cite> 58:04</small>
 
-</blockquote>
+</div>
 
 </div>
 
@@ -49,15 +50,6 @@ During their journey down the canal on the way to Shell Beach, Dr. Schreber expl
 
 ---
 
-![Walenski](images/screen-walenski.png)
-
-Notes:
-- initially not recognize the abuse
-- Walenski: "sometimes, one of us wakes up"
-- mirroring the Strangers' commands to "sleep" when they deem humans obtinate
-
----
-
 <div class="r-stack" markdown="1">
 
 - Abusers directly inform their victims of their “instability” rather than engage in any genuine, open conversation
@@ -70,6 +62,9 @@ Notes:
 </div>
 
 Notes:
+- initially not recognize the abuse
+- Walenski: "sometimes, one of us wakes up"
+- mirroring the Strangers' commands to "sleep" when they deem humans obtinate
 - Emma's empty apartment, "new pretty things", call her Anna
 - Emma is not Anna, Strangers say will be soon
 - By the end of the film, Emma is gone, and Anna takes her place.

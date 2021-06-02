@@ -47,6 +47,7 @@ img {
   max-width: 100%;
   height: auto;
   max-height: 80vh;
+  margin-inline: auto;
 }
 
 img[src*='reedcodes'] {
@@ -60,6 +61,8 @@ img[src*='reedcodes'] {
 
 blockquote {
   margin: 0;
+  padding-inline-start: 2vw;
+  border-inline-start: 1vw solid color.$foam;
 }
 
 .citation {
