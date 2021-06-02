@@ -1,4 +1,4 @@
-<!-- .slide data-auto-animate -->
+<!-- .slide: data-auto-animate -->
 
 film noir <!-- .element: class="r-fit-text" -->
 
@@ -12,7 +12,7 @@ Notes:
 
 ---
 
-<!-- .slide data-auto-animate -->
+<!-- .slide: data-auto-animate -->
 
 film noir <!-- .element: class="r-fit-text" -->
 
