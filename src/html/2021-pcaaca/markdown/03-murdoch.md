@@ -1,4 +1,4 @@
-<!-- .slide: data-background-image="images/screen-meet-murdoch.png" class="end" -->
+<!-- .slide: data-background-image="images/screen-meet-murdoch.png" class="right" -->
 
 - he receives a disturbing phone call <!-- .element: class="fragment" -->
 - he finds a dead sex worker <!-- .element: class="fragment" -->
@@ -25,4 +25,9 @@ Notes:
 compare to BR...
 - Deckard struggles with his status as human or replicant
 - Murdoch must confront the instability of his own identity and memory
-- Both displaced heroes must discover what is going on in order to learn more about who they are.
+
+---
+
+> These narrative twists display the fatalistic element of film noir, where Deckard and Murdoch must struggle to regain control over their circumstances. Until they sort out the schemes they are each inadvertently part of, neither Deckard nor Murdoch fully understands what he is caught up in or the potential consequences that lie in wait. Only when they understand these things can they take action to extricate themselves. At the same time, both Deckard and Murdoch must discover who they are.
+>
+> <small class="citation">(Knight and Knight, <cite>“What Is It to Be Human? Blade Runner and Dark City”</cite> 25)</small>
