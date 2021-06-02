@@ -3,9 +3,10 @@ What does it mean to be human? <!-- .element: class="r-fit-text" -->
 Notes:
 - what characteristics do we use to measure?
 - who has the authority to pronounce someone as human or not?
-- several SF films have woven into their narrative
 
 ---
+
+Narratives involving humanity, memory, and identity
 
 <div class="blocks" markdown="1">
 
@@ -20,6 +21,7 @@ Notes:
 </div>
 
 Notes:
+several SF films have woven into their narrative
 1. BRB - Martha gets a synthetic Ash and wrestles with her feelings
 1. Dolls have memories wiped, Ballard tries to get authorities to see them as "people"
 1. Caleb's boss Nathan asks him to perform a Turning test on Ava
@@ -29,9 +31,9 @@ Notes:
 
 <div class="blocks" markdown="1">
 
-![The Forgotten](images/eg-forgotten.jpg) <!-- .element: class="fragment" -->
+![The Forgotten](images/eg-forgotten.jpg)
 
-![Dark City](images/eg-dark-city.jpg) <!-- .element: class="fragment" -->
+![Dark City](images/eg-dark-city.jpg)
 
 </div>
 
