@@ -143,10 +143,10 @@ img[src*='reedcodes'] {
 .blocks {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   > * {
-    width: min(500px, 25vw);
+    width: min(18vw, 450px);
     margin-block: 2vh;
     margin-inline: 2vw;
     text-align: center;
@@ -158,7 +158,7 @@ img[src*='reedcodes'] {
   }
 
   img {
-    height: min(500px, 40vh);
+    height: min(800px, 80vh);
     margin-inline: auto;
   }
 }

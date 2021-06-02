@@ -1,11 +1,11 @@
 What does it mean to be human? <!-- .element: class="r-fit-text" -->
 
 Notes:
-Here are my notes.
+- what characteristics do we use to measure?
+- who has the authority to pronounce someone as human or not?
+- several SF films have woven into their narrative
 
 ---
-
-<!-- .slide: data-auto-animate -->
 
 <div class="blocks" markdown="1">
 
@@ -17,6 +17,18 @@ Here are my notes.
 
 ![Blade Runner](images/eg-blade-runner.jpg) <!-- .element: class="fragment" -->
 
+</div>
+
+Notes:
+1. BRB - Martha gets a synthetic Ash and wrestles with her feelings
+1. Dolls have memories wiped, Ballard tries to get authorities to see them as "people"
+1. Caleb's boss Nathan asks him to perform a Turning test on Ava
+1. replicants cling to the beliefs of their false pasts, right to free existence
+
+---
+
+<div class="blocks" markdown="1">
+
 ![The Forgotten](images/eg-forgotten.jpg) <!-- .element: class="fragment" -->
 
 ![Dark City](images/eg-dark-city.jpg) <!-- .element: class="fragment" -->
@@ -24,13 +36,17 @@ Here are my notes.
 </div>
 
 Notes:
-Here are my notes.
+Both Forgotten & DC examine humanity from an alien perspective. Delete memories, add new ones - learn more about "human identity". Take away human's agency
+- treating them as objects instead of individuals
+- manipulating their memories and leading them to think they are "going crazy"
 
 ---
 
-<!-- .slide: data-auto-animate -->
-
-![Dark City](images/eg-dark-city.jpg) <!-- .element: class="center" -->
+Dark City <!-- .element: class="dark-city-title center" -->
 
 Notes:
-Here are my notes.
+allegorical representations of
+- trauma
+- emotional abuse
+- gaslighting
+- untrusted experience
