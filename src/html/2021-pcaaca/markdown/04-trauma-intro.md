@@ -13,14 +13,15 @@ Notes:
 
 Notes:
 - trauma and abuse whether they realize it or not
+- Murdoch has unknowingly, until now, been living under the abusive authority of The Strangers
 
 ---
 
 <!-- .slide: data-background-image="images/screen-broken-syringe.png" -->
 
 Notes:
-- failed memory injection
-- "memory scraps" allow him to begin the process of
+- due to failed memory injection due to the failed memory injection, Murdoch now only has "memory scraps"
+- yet these still allow him to begin the process of
   - determining the truth
   - surviving his trauma
 
@@ -52,7 +53,7 @@ Notes:
 post-traumatic stress disorder <!-- .element: class="r-fit-text" -->
 
 Notes:
-- more likely to develop PTSD and intrusive thoughts
+- more likely to develop post-traumatic stress disorder and suffer intrusive thoughts if their trauma is a central aspect of their identity
 
 ---
 

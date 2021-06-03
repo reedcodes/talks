@@ -1,4 +1,7 @@
-It is not strictly memory that informs a person’s perceived identity, but also what they do with that knowledge and how they form their own personal values and ethics. Murdoch once thought his memories were what defined his life and his identity, but has come to admit that he does not know which are real and which are implanted; he understands that he must work for the future regardless of the authenticity of his memories.
+It is not strictly memory that informs a person’s perceived identity, but also what they do with that knowledge and how they form their own personal values and ethics.
+
+Notes:
+Murdoch once thought his memories were what defined his life and his identity, but has come to admit that he does not know which are real and which are implanted; he understands that he must work for the future regardless of the authenticity of his memories.
 
 ---
 

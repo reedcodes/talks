@@ -13,7 +13,7 @@ Three stages to gaslighting:
 2. defense of self and self-truth as it conflicts with the gaslighter’s statements <!-- .element: class="fragment" -->
 3. depression and self-doubt as the gaslighter’s reality takes over <!-- .element: class="fragment" -->
 
-<small class="citation">Sterns qtd. in Fuchsman, "Gaslighting" 76</small>
+<small class="fragment citation">Sterns qtd. in Fuchsman, <cite>"Gaslighting"</cite> 76</small>
 
 Notes:
 - 3 stages...
