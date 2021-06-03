@@ -69,6 +69,7 @@ blockquote {
   display: block;
   margin-block-start: 2rem;
   margin-inline-start: 25vw;
+  font-size: 0.75rem;
 }
 
 
@@ -136,23 +137,22 @@ blockquote {
         text-align: center;
       }
 
-      &.left  { width: auto; justify-self: start; }
-      &.right { width: auto; justify-self: end; }
+      &.left   { width: auto; justify-self: start; }
+      &.right  { width: auto; justify-self: end; }
+      &.top    { align-self: start; }
+      &.bottom { align-self: end; }
     }
   }
 
   .backgrounds {
-    .left, .right {
+    .left, .right, .top, .bottom {
       div { mix-blend-mode: multiply; }
     }
 
-    .left {
-      background-image: linear-gradient( to right, color.$raisin, transparent);
-    }
-
-    .right {
-      background-image: linear-gradient( to left, color.$raisin, transparent);
-    }
+    .left { background-image: linear-gradient( to right, color.$raisin, transparent); }
+    .right { background-image: linear-gradient( to left, color.$raisin, transparent); }
+    .top { background-image: linear-gradient( to bottom, color.$raisin, transparent); }
+    .bottom { background-image: linear-gradient( to top, color.$raisin, transparent); }
   }
 
   .controls {
