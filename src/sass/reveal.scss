@@ -40,7 +40,8 @@ a {
   }
 }
 
-img {
+img,
+video {
   object-fit: contain;
   display: block;
   width: auto;
