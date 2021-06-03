@@ -47,8 +47,23 @@ Both Forgotten & DC examine humanity from an alien perspective. Delete memories,
 Dark City <!-- .element: class="dark-city-title center" -->
 
 Notes:
-allegorical representations of
-- trauma
-- emotional abuse
-- gaslighting
-- untrusted experience
+This paper aims to critically examine this question through Dark City’s allegorical representations of trauma, emotional abuse, gaslighting, and untrusted experience
+
+---
+
+- *film noir* and science fiction
+- identity crisis as a trauma response
+- suppression of identity formation and personal agency
+- identity, memory, and documentation
+- cognitive memory and emotional memory
+- healing, support, and recovery
+- from victim to survivor
+
+Notes:
+- Proyas’ intentions on combining...
+- symptoms and manifestations of emotional abuse and trauma, including...
+- childhood emotional abuse and gaslighting, and...
+- connections between...
+- differences between...
+- ...from trauma
+- Murdoch’s journey...
