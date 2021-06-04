@@ -223,7 +223,12 @@ blockquote {
 
 // Bio info, begin and end.
 .bio {
+  grid-template-columns: 5fr 2fr;
+
+  img { grid-column: 2/3; }
+
   dl {
+    grid-row: 1/2;
     display: grid;
     grid-template-columns: 1fr auto;
     grid-column-gap: 0.75rem;

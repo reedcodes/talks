@@ -21,10 +21,11 @@ Notes:
 - Science fiction narratives often adopt the language of computer information data when discussing human memory...
 - Individuals who have been through a trauma may bury and repress the painful memories as a method of survival at the time, but later the memories may again surface and overwhelm them, making it difficult to process or integrate
 - Memory is imperfect and agile, but when one expects it to be perfect and consistent, further trauma can occur
+- Walenski exhibits this behavior when Bumstead visits him...
 
 ---
 
-**video of walenski and bumstead**
+<video data-autoplay data-src="video/walenski.mp4"></video>
 
 ---
 
@@ -34,9 +35,9 @@ repetition compulsion <!-- .element: class="r-fit-text fragment" -->
 
 Notes:
 - Walenski’s confusion leads him to compulsively draw circles and spirals, first on all his case files, then on the walls of rooms in the apartment he shares with his wife
-- Circles and spirals are repeating motifs throughout the film
-- clocks or “time labyrinths” (Blackmore 26) measure the circular passage of time in a city of constant night
-- symbolize the phenomenon known as repetition compulsion, or the unconscious tendency to repeat bad habits, unhealthy behaviors, or trauma responses
+- Circles, spirals, and clocks are repeating motifs throughout the film
+- measure the circular passage of time in a city of constant night
+- symbolize repetition compulsion, or the unconscious tendency to repeat bad habits, unhealthy behaviors, or trauma responses
 - When an individual with unprocessed trauma does not address their repressed memories or the cause of their emotional distress, it can lead to the overwhelming memories mentioned above and to further repetition compulsion
 
 ---
