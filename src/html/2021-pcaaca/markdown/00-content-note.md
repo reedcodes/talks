@@ -3,4 +3,4 @@
 - spoilers for <i>Dark City</i> and related texts
 - childhood emotional abuse
 - mental illness, depression, and anxiety
-- suicide and suicide ideation
+- suicide and suicidal ideation

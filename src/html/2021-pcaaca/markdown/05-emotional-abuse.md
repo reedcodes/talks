@@ -20,7 +20,7 @@ Adult survivors of childhood emotional abuse
 
 - develop depression <!-- .element: class="fragment" -->
 - attempt or commit suicide <!-- .element: class="fragment" -->
-- suffer from suicide ideation <!-- .element: class="fragment" -->
+- suffer from suicidal ideation <!-- .element: class="fragment" -->
 
 Notes:
 - emotional more closely linked than physical abuse
