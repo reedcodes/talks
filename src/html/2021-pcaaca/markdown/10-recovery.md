@@ -7,10 +7,10 @@ Murdoch once thought his memories were what defined his life and his identity, b
 
 Recovery from trauma, emotional abuse, and gaslighting:
 
-- actively resists repressing memories <!-- .element: class="fragment" -->
-- works through the experience <!-- .element: class="fragment" -->
-- processes their self-doubt <!-- .element: class="fragment" -->
-- understands their true identity <!-- .element: class="fragment" -->
+- actively resist repressing memories <!-- .element: class="fragment" -->
+- work through the experience <!-- .element: class="fragment" -->
+- process their self-doubt <!-- .element: class="fragment" -->
+- understand their true identity <!-- .element: class="fragment" -->
 
 Notes:
 - memories may or may not be remembered
@@ -66,7 +66,7 @@ Even with unreliable memories, Murdoch
 
 ---
 
-<video data-autoplay src="video/fix-things.mp4"></video>
+<video data-autoplay data-src="video/fix-things.mp4"></video>
 
 Notes:
 - Shell Beach has been an inspiration to Murdoch and to all the inhabitants of the previously dark city, promising them a bright future full of personal agency and individuality, and its creation is his primary task following the defeat of The Strangers.

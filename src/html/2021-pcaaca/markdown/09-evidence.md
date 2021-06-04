@@ -15,7 +15,7 @@ cognitive <!-- .element: class="r-fit-text" -->
 emotional <!-- .element: class="r-fit-text" -->
 
 Notes:
--emotional: related to feelings about events, people, or other things
+- emotional: related to feelings about events, people, or other things
 
 ---
 
