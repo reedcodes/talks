@@ -1,4 +1,6 @@
 .DS_Store
-
-dist
 node_modules
+dist
+
+/2021-pcaaca
+/2020-wpcampus
