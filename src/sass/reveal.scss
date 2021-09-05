@@ -146,14 +146,23 @@ blockquote {
   }
 
   .backgrounds {
+    --bg-direction: right;
+    --bg-color: #{ color.$raisin };
+
     .left, .right, .top, .bottom {
+      background-image: linear-gradient(
+        to var(--bg-direction),
+        var(--bg-color),
+        transparent
+      );
+
       div { mix-blend-mode: multiply; }
     }
 
-    .left { background-image: linear-gradient( to right, color.$raisin, transparent); }
-    .right { background-image: linear-gradient( to left, color.$raisin, transparent); }
-    .top { background-image: linear-gradient( to bottom, color.$raisin, transparent); }
-    .bottom { background-image: linear-gradient( to top, color.$raisin, transparent); }
+    .left { --bg-direction: right; }
+    .right { --bg-direction: left; }
+    .top { --bg-direction: bottom; }
+    .bottom { --bg-direction: top; }
   }
 
   .controls {
@@ -247,6 +256,20 @@ blockquote {
       font-size: 1.5rem;
     }
   }
+
+  .role {
+    &-position .student,
+    &-student .position {
+      display: none;
+    }
+}
+}
+
+
+
+// End: thank you.
+[data-id*="thanks"] {
+  margin-block: 0;
 }
 
 
