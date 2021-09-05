@@ -1,0 +1,52 @@
+@use 'mq';
+
+// Fluid Type Sass Mixin.
+// https://codepen.io/MadeByMike/pen/vNrvdZ
+@mixin fluid-type(
+  $properties,
+  $min-value: 16px,
+  $max-value: 40px,
+  $min-screen: 320px,
+  $max-screen: 1200px
+) {
+  & {
+    @each $property in $properties {
+      #{ $property }: #{ $min-value };
+    }
+
+    @include mq.media( '>=sm' ) {
+      @each $property in $properties {
+        #{ $property }: calc-fluid-type(
+          $min-screen,
+          $min-value,
+          $max-screen,
+          $max-value
+        );
+      }
+    }
+
+    @include mq.media( '>=lg' ) {
+      @each $property in $properties {
+        #{ $property }: #{ $max-value };
+      }
+    }
+  }
+}
+
+@function calc-fluid-type(
+  $min-screen,
+  $min-value,
+  $max-screen,
+  $max-value
+) {
+  $a: ( $max-value - $min-value ) / ( $max-screen - $min-screen );
+  $b: $min-value - $a * $min-screen;
+
+  $sign: '+';
+  @if( $b<0 ) {
+    $sign: '-';
+    $b: abs($b);
+  }
+
+  @return calc( #{ $a*100 }vw #{ $sign } #{ $b } );
+}

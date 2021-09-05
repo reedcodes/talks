@@ -1,0 +1,29 @@
+<script src="/dist/js/reveal.js"></script>
+<script src="/dist/js/markdown/markdown.js"></script>
+<script src="/dist/js/notes/notes.js"></script>
+<script>
+  Reveal.initialize(
+    {
+      // Plugins.
+      plugins: [
+        RevealMarkdown,
+        RevealNotes
+      ],
+
+      // Config options.
+      disableLayout: true,
+      transition: 'fade',
+      transitionSpeed: 'slow',
+      autoAnimateDuration: 0.6,
+      controlsLayout: 'edges',
+      controlsBackArrows: 'visible',
+      progress: false,
+      showSlideNumber: 'speaker',
+      hash: true,
+      hashOneBasedIndex: true,
+      fragmentInURL: false,
+      mouseWheel: true,
+      totalTime: @@sessionTime
+    }
+  );
+</script>
