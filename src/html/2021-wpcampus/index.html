@@ -253,6 +253,128 @@
       <section>
         <div class="columns equal">
           <div>
+            <pre><code data-trim data-line-numbers>// Text
+//
+// Weight: 2
+//
+// Styleguide: Text</code></pre>
+          </div>
+          <div class="fragment">
+            <pre><code data-trim data-line-numbers>// Heading
+//
+// Heading content defines the header of a section.
+//
+// Markup: eg-heading.twig
+//
+// Weight: 1
+//
+// Styleguide: Text.Heading
+
+// Paragraph
+//
+// A paragraph is phrasing content one or more sentences.
+//
+// Markup: eg-paragraph.twig
+//
+// Weight: 2
+//
+// Styleguide: Text.Paragraph</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          - First: name of the pattern - Link
+          - Second: description
+          - Third: modifiers, or variants of the pattern, e.g. classes or pseudo-classes
+          - Next: location of Twig to use as an example to show in the style guide
+          - Last: section of the styleguide, used for creating hierarchy and page URLs
+          - After comments: regular Sass or CSS declarations, here: using default styles. the file doesn't require any CSS, just the comments to build the style guide.
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/text/heading.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{%- set heading_level = heading_level | default(2) -%}
+
+<h{{heading_level}} class="text-heading {{modifier_class}}">{{heading_text}}</h{{heading_level}}></code></pre>
+
+        <aside class="notes">
+          - create the Twig to use for the link pattern
+          - add any variables for use, here: the heading level and the heading text
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/text/heading.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{%- set heading_level = heading_level | default(2) -%}
+
+<h{{heading_level}} class="text-heading">{{heading_text}}</h{{heading_level}}></code></pre>
+
+        <h2><code>./src/text/eg-heading.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{% include "@text/heading.twig" with { heading_text: "Taciti feugiat a sapien parturient" } %}
+
+{% include "@text/heading.twig" with {
+  heading_level: 3,
+  heading_text: "Mi venenatis mus elementum"
+} %}
+
+{% include "@text/heading.twig" with {
+  heading_level: 4,
+  heading_text: "Posuere non sit pharetra"
+} %}</code></pre>
+
+        <aside class="notes">
+          - create the example Twig on how to use the actual Twig pattern file
+          - the style guide will know what to do with this example file, since we added it in the comments of the Sass
+          - here: passing in example values for the variables
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/text/paragraph.twig</code></h2>
+        <pre><code data-trim data-line-numbers><p class="text-paragraph">{{paragraph_text}}</p></code></pre>
+
+        <aside class="notes">
+          - create the Twig to use for the link pattern
+          - add any variables for use, here: the paragraph text
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/text/paragraph.twig</code></h2>
+        <pre><code data-trim data-line-numbers><p class="text-paragraph">{{paragraph_text}}</p></code></pre>
+
+        <h2><code>./src/text/eg-heading.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{% include "@text/paragraph.twig" with {
+  paragraph_text: "Curabitur vestibulum enim rutrum nostra dui eros sed sed vestibulum ..."
+} %}</code></pre>
+
+        <aside class="notes">
+          - create the example Twig on how to use the actual Twig pattern file
+          - the style guide will know what to do with this example file, since we added it in the comments of the Sass
+          - here: passing in example values for the variables
+        </aside>
+      </section>
+
+
+
+      <section>
+        <iframe class="kss-page" data-src="http://samplekss.test/styleguide/section-text.html"></iframe>
+      </section>
+
+
+
+      <section>
+        <div class="columns equal">
+          <div>
         <pre><code data-trim data-line-numbers>// Link
 //
 // **Links** are connections between two resources...
@@ -266,7 +388,7 @@
 //
 // Styleguide: Link</code></pre>
           </div>
-          <div>
+          <div class="fragment">
         <pre><code data-trim data-line-numbers>a {
   --color-link: var(--cobalt);
   --color-link-on: var(--purple);
