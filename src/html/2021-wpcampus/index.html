@@ -245,7 +245,7 @@
 
 
       <section>
-        <iframe class="kss-page" data-src="http://samplekss.test/styleguide/section-color.html"></iframe>
+        <img class="kss-page" data-src="images/screen-color.png" width="1280" height="490" alt="grid display of the brand colors in use for the example style guide" />
       </section>
 
 
@@ -367,7 +367,13 @@
 
 
       <section>
-        <iframe class="kss-page" data-src="http://samplekss.test/styleguide/section-text.html"></iframe>
+        <img class="kss-page" data-src="images/screen-text-heading.png" width="1280" height="818" alt="style guide page for the Text.Heading section, illustrating the description, example pattern, and code" />
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-text-paragraph.png" width="1280" height="500" alt="style guide page for the Text.Paragraph section, illustrating the description, example pattern, and code" />
       </section>
 
 
@@ -447,7 +453,7 @@
         <h2><code>./src/link/eg-link.twig</code></h2>
         <pre><code data-trim data-line-numbers>{% include "@link/link.twig" with {
   link_text: "Facilisi dictum a parturient",
-  link_url: "https://lipsum.pro/"
+  link_url: "index.html"
 } %}</code></pre>
 
         <aside class="notes">
@@ -460,7 +466,229 @@
 
 
       <section>
-        <iframe class="kss-page" data-src="http://samplekss.test/styleguide/section-link.html"></iframe>
+        <img class="kss-page" data-src="images/screen-link.png" width="1280" height="700" alt="style guide page for the Link section, illustrating the description, example pattern, and code" />
+      </section>
+
+
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Let's put it together! <!-- .element: class="r-fit-text" -->
+
+        We have enough patterns to create a new Card pattern <!-- .element: class="center" -->
+
+        Notes:
+        - add styles to the card, and need to update existing styles
+      </script></section>
+
+
+
+      <section>
+        <div class="columns equal">
+          <div>
+        <pre><code data-trim data-line-numbers>// Card
+//
+// A card includes content and a call to action.
+//
+// Markup: card.twig
+//
+// Weight: 4
+//
+// Styleguide: Card</code></pre>
+          </div>
+          <div>
+        <pre><code data-trim data-line-numbers>.card {
+  --card-width: max(250px, 50%);
+  --card-padding: 1em;
+  --card-border-color: var(--purple);
+
+  width: var(--card-width);
+  padding: var(--card-padding);
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--card-padding);
+
+  :is( h2, h3, h4 ):first-child {
+    margin-top: 0;
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          same comments as before, including
+          - name of the pattern - Link
+          - description
+          - location of Twig
+          - section of the styleguide
+          - regular Sass
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/card/card.twig</code></h2>
+        <pre><code class="language-dts" data-trim data-line-numbers><div class="card">
+  {% if card_heading %}
+    {% include "@text/heading.twig" with {
+      heading_level: 3,
+      heading_text: card_heading
+    } %}
+  {% endif %}
+
+  {% include "@text/paragraph.twig" with { paragraph_text: card_description } %}
+
+  {% include "@link/link.twig" with {
+    modifier_class: "cta-link",
+    link_text: card_link_text,
+    link_url: card_link_url
+  } %}
+</div></code></pre>
+
+        <aside class="notes">
+          - new Card-specific variables
+          - include the heading, paragraph, link Twig
+          - tell those Twigs to use the Card values
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/card/card.twig</code></h2>
+        <pre><code class="language-dts" data-trim data-line-numbers="12"><div class="card">
+  {% if card_heading %}
+    {% include "@text/heading.twig" with {
+      heading_level: 3,
+      heading_text: card_heading
+    } %}
+  {% endif %}
+
+  {% include "@text/paragraph.twig" with { paragraph_text: card_description } %}
+
+  {% include "@link/link.twig" with {
+    modifier_class: "cta-link",
+    link_text: card_link_text,
+    link_url: card_link_url
+  } %}
+</div></code></pre>
+
+        <aside class="notes">
+          - new! modifier_class passed to the link pattern
+          - specific to the Card pattern
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/card/card.json</code></h2>
+        <pre><code data-trim data-line-numbers>{
+  "card_heading": "Scelerisque nam eros parturient",
+  "card_description": "Bibendum parturient laoreet a a purus augue hac vestibulum ac sociosqu felis integer.",
+  "card_link_text": "A ut parturient",
+  "card_link_url": "index.html"
+}</code></pre>
+
+        <aside class="notes">
+          - new! before we used example Twig files
+          - can also use json to pass values into the Twig
+          - in the styleguide, if using json, the filename must match the Twig filename
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card.png" width="1280" height="360" alt="style guide page for the new Card, illustrating the existing heading, paragraph, and link inside the new Card pattern" />
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/link/_index.scss</code></h2>
+        <div class="columns equal">
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers="5-7">// ...
+//
+// :hover - the mouse hover state
+// :focus-visible - the keyboard focus state
+// .cta-link - links used for calls to action
+// .cta-link:hover - hover state for CTA links
+// .cta-link:focus-visible - focus state for CTA links
+//
+// ...</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          - add new modifiers for the CTA Link class, and pseudo-classes
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/link/_index.scss</code></h2>
+        <div class="columns">
+          <div>
+            <pre><code data-trim data-line-numbers="5-6,9,15">a {
+  --color-link: var(--cobalt);
+  --color-link-on: var(--purple);
+  --outline-link-size: max( 2px, 0.08em );
+  --color-link-bg: transparent;
+  --color-link-bg-on: transparent;
+
+  color: var(--color-link);
+  background-color: var(--color-link-bg);
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color: var(--color-link-on);
+    background-color: var(--color-link-bg-on);
+  }
+  ...
+}</code></pre>
+          </div>
+          <div class="fragment">
+            <pre><code class="language-css" data-trim data-line-numbers>.cta-link {
+  --color-link: var(--icewhite);
+  --color-link-on: var(--icewhite);
+  --color-link-bg: var(--purple);
+  --color-link-bg-on: var(--cobalt);
+
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  border-radius: 0.5em;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+
+  &:focus,
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 0.2em var(--color-link-on),
+                0 0 0 0.4em var(--color-link-bg-on);
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          - adjust the link to allow for additional classes
+          - add the new CSS declarations for the CTA link styles
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-link-cta.png" width="1280" height="730" alt="style guide page for Link, illustrating the new pattern for call to action links" />
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-cta.png" width="1280" height="375" alt="style guide page for Card, now including the new pattern for call to action links" />
       </section>
 
 
