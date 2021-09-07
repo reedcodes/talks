@@ -50,17 +50,13 @@
 
         ### for the style guide
 
-        ```
-        ./builder
-        ./styleguide
-        ```
+        `./builder`<br/>
+        `./styleguide`
 
         ### for the pattern library
 
-        ```
-        ./src
-        ./dist
-        ```
+        `./src`<br/>
+        `./dist`
 
         Notes:
         - can be named anything according to your team's coding conventions
@@ -116,11 +112,17 @@
       <section data-markdown><script type="text/template">
         ## Copy the Base Template
 
-        `./node_modules/kss/builder/twig` <!-- .element: class="fragment" -->
+        `./node_modules/kss/builder/twig`
 
-        <span class="fragment fas fa-arrow-down"></span>
+        <span class="fas fa-arrow-down"></span>
 
-        `./builder/twig` <!-- .element: class="fragment" -->
+        `./builder/twig`
+
+        Notes:
+        - default Twig builder that comes with kss-node
+        - customize the Twig and/or CSS to theme the builder
+        - other 3rd-party builders available
+        - example uses Twig version of Michelangelo builder
       </script></section>
 
 
@@ -169,7 +171,7 @@
       <section>
         <h2>Create the Pattern Library Directories</h2>
 
-        <div class="columns">
+        <div class="columns equal">
           <div>
 <pre><code>./src/base/_index.scss
 ./src/link/_index.scss
@@ -203,7 +205,9 @@
 
 
       <section>
-        <pre data-id="packagejson-code"><code data-trim data-line-numbers="1|3-9|11|13|15-22">// Brand Colors
+        <div class="columns equal">
+          <div>
+            <pre><code data-trim data-line-numbers>// Brand Colors
 //
 // Colors:
 // --darkgray: rgb(37, 41, 53) - Dark Gray
@@ -215,9 +219,10 @@
 //
 // Weight: 1
 //
-// Styleguide: Color
-
-:root {
+// Styleguide: Color</code></pre>
+          </div>
+          <div class="fragment">
+            <pre><code data-trim data-line-numbers>:root {
   --darkgray: rgb(37, 41, 53);
   --purple: rgb(125, 59, 106);
   --cobalt: rgb(0, 121, 140);
@@ -225,6 +230,9 @@
   --goldenrod: rgb(246, 174, 45);
   --icewhite: rgb(248, 245, 242);
 }</code></pre>
+          </div>
+        </div>
+
         <aside class="notes">
           - First: name of the pattern - brand colors
           - Second: list of the colors - name, code, description
@@ -243,44 +251,95 @@
 
 
       <section>
-        <pre data-id="packagejson-code"><code data-trim data-line-numbers="1|3-12|14-29">// Link
+        <div class="columns equal">
+          <div>
+        <pre><code data-trim data-line-numbers>// Link
 //
-// **Links** are connections between two resources.
+// **Links** are connections between two resources...
 //
-// :hover - the state when a mouse is hovered over the link
-// :focus - the state when the link has keyboard focus
+// :hover - the mouse hover state
+// :focus-visible - the keyboard focus state
 //
 // Markup: eg-link.twig
 //
 // Weight: 3
 //
-// Styleguide: Link
-
-a {
+// Styleguide: Link</code></pre>
+          </div>
+          <div>
+        <pre><code data-trim data-line-numbers>a {
   --color-link: var(--cobalt);
   --color-link-on: var(--purple);
+  --outline-link-size: max( 2px, 0.08em );
 
   color: var(--color-link);
 
+  &:hover,
   &:focus,
-  &:hover {
+  &:focus-visible {
     color: var(--color-link-on);
   }
 
-  &:focus {
-    outline: max( 2px, 0.08em ) solid currentColor;
-    outline-offset: max( 2px, 0.08em );
+  &:focus,
+  &:focus-visible {
+    outline-size: var(--outline-link-size);
+    outline-style: solid;
+    outline-color: currentColor;
+    outline-offset: var(--outline-link-size);
   }
+
+  :focus:not(:focus-visible) { outline: none; }
 }</code></pre>
+          </div>
+        </div>
+
         <aside class="notes">
-          - First: name of the pattern - brand colors
+          - First: name of the pattern - Link
           - Second: description
-          - Third: location of Twig
-          - Next: section of the styleguide, used for creating hierarchy and page URLs
+          - Third: modifiers, or variants of the pattern, e.g. classes or pseudo-classes
+          - Next: location of Twig to use as an example to show in the style guide
+          - Last: section of the styleguide, used for creating hierarchy and page URLs
           - After comments: regular Sass or CSS declarations
         </aside>
       </section>
 
+
+
+      <section data-auto-animate>
+        <h2><code>./src/link/link.twig</code></h2>
+        <pre><code data-trim data-line-numbers><a class="text-link {{modifier_class}}" href="{{link_url}}">{{link_text}}</a></code></pre>
+
+        <aside class="notes">
+          - create the Twig to use for the link pattern
+          - add any variables for use, here: the link url and the link text
+          - modifier_class is unique for kss-node but is really useful!
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/link/link.twig</code></h2>
+        <pre><code data-trim data-line-numbers><a class="text-link {{modifier_class}}" href="{{link_url}}">{{link_text}}</a></code></pre>
+
+        <h2><code>./src/link/eg-link.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{% include "@link/link.twig" with {
+  link_text: "Facilisi dictum a parturient",
+  link_url: "https://lipsum.pro/"
+} %}</code></pre>
+
+        <aside class="notes">
+          - create the example Twig on how to use the actual Twig pattern file
+          - the style guide will know what to do with this example file, since we added it in the comments of the Sass
+          - here: passing in example values for the variables
+        </aside>
+      </section>
+
+
+
+      <section>
+        <iframe class="kss-page" data-src="http://samplekss.test/styleguide/section-link.html"></iframe>
+      </section>
 
 
 

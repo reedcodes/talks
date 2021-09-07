@@ -1,10 +1,9 @@
 @use 'reveal';
-@use './node_modules/reveal.js/plugin/highlight/monokai.css';
-
+@use 'code';
 @use 'color';
 
 .kss-page {
   width: min(100vw, 100%);
-  height: max(50vh, 65vh);
+  height: max(60vh, 80vh);
   border: 2px solid color.$steel;
 }

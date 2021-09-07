@@ -61,7 +61,7 @@ img[src*='reedcodes'] {
 }
 
 pre {
-  font-size: 0.65em;
+  font-size: 0.5em;
 }
 
 blockquote {
@@ -190,6 +190,12 @@ blockquote {
 
   @include mq.media('>md') {
     grid-template-columns: 2fr 5fr;
+
+    &.equal {
+      --column-number: 2;
+
+      grid-template-columns: repeat( var(--column-number), 1fr );
+    }
   }
 }
 
