@@ -74,7 +74,7 @@
 
       <section data-auto-animate>
         <h2 data-id="packagejson-title"><code>./package.json</code></h2>
-<pre data-id="packagejson-code"><code class="hljs" data-trim data-line-numbers>{
+<pre data-id="packagejson-code"><code data-trim data-line-numbers>{
   "name": "sample-kss",
   "version": "1.0.0",
   "description": "Sample KSS",
@@ -91,8 +91,8 @@
       </section>
 
       <section data-auto-animate>
-        <h2 data-id="packagejson-title">Create <code>./package.json</code></h2>
-<pre data-id="packagejson-code"><code class="hljs" data-trim data-line-numbers>{
+        <h2 data-id="packagejson-title"><code>./package.json</code></h2>
+<pre data-id="packagejson-code"><code data-trim data-line-numbers>{
   "name": "sample-kss",
   "version": "1.0.0",
   "description": "Sample KSS",
@@ -120,18 +120,18 @@
 
         <span class="fragment fas fa-arrow-down"></span>
 
-        `./builder` <!-- .element: class="fragment" -->
+        `./builder/twig` <!-- .element: class="fragment" -->
       </script></section>
 
 
 
       <section data-auto-animate>
         <h2 data-id="kssconfigjson-title"><code>./kss-config.json</code></h2>
-<pre data-id="kssconfigjson-code"><code class="hljs" data-trim data-line-numbers>{
+<pre data-id="kssconfigjson-code"><code data-trim data-line-numbers>{
   "title": "Sample KSS",
   "source": "src/",
   "destination": "styleguide/",
-  "builder": "builder/",
+  "builder": "builder/twig/",
   "css": "../dist/css/styles.css"
 }</code></pre>
         <aside class="notes">
@@ -145,7 +145,7 @@
 
       <section data-auto-animate>
         <h2 data-id="kssconfigjson-title"><code>./kss-config.json</code></h2>
-<pre data-id="kssconfigjson-code"><code class="hljs" data-trim data-line-numbers>{
+<pre data-id="kssconfigjson-code"><code data-trim data-line-numbers>{
   "title": "Sample KSS",
   "source": "src/",
   "destination": "styleguide/",
@@ -166,11 +166,79 @@
 
 
 
-      <section data-markdown><script type="text/template">
-        ## Include the First Patterns!
+      <section>
+        <h2>Create the Pattern Library Directories</h2>
 
-        Add `./src/styles.scss` now so we have something to build from later.
+        <div class="columns">
+          <div>
+<pre><code>./src/base/_index.scss
+./src/button/_index.scss
+./src/card/_index.scss
+./src/color/_index.scss
+./src/layout/_index.scss
+./src/text/_index.scss</code></pre>
+          </div>
+
+          <div class="fragment">
+<pre><code data-trim data-line-numbers>@use 'base';
+@use 'color';
+@use 'text';
+@use 'button';
+@use 'card';
+@use 'layout';</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          Add `./src/styles.scss` now so we have something to build from later.
+        </aside>
+      </section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## Let's add the first patterns! <!-- .element: class="r-fit-text" -->
       </script></section>
+
+
+
+      <section>
+        <pre data-id="packagejson-code"><code data-trim data-line-numbers="1|3-9|11|13|15-22">// Brand Colors
+//
+// Colors:
+// --darkgray: rgb(37, 41, 53) - Dark Gray
+// --purple: rgb(125, 59, 106) - Purple
+// --cobalt: rgb(0, 121, 140) - Cobalt
+// --crimson: rgb(208, 55, 17) - Crimson
+// --goldenrod: rgb(246, 174, 45) - Goldenrod
+// --icewhite: rgb(248, 245, 242) - Ice White
+//
+// Weight: 1
+//
+// Styleguide: Color
+
+:root {
+  --darkgray: rgb(37, 41, 53);
+  --purple: rgb(125, 59, 106);
+  --cobalt: rgb(0, 121, 140);
+  --crimson: rgb(208, 55, 17);
+  --goldenrod: rgb(246, 174, 45);
+  --icewhite: rgb(248, 245, 242);
+}</code></pre>
+        <aside class="notes">
+          - First: name of the pattern - brand colors
+          - Second: list of the colors - name, code, description
+          - Third: weight of the page
+          - Next: section of the styleguide, used for creating hierarchy and page URLs
+          - After comments: regular Sass or CSS declarations
+        </aside>
+      </section>
+
+
+
+      <section>
+        <iframe class="kss-page" data-src="http://samplekss.test/styleguide/section-color.html"></iframe>
+      </section>
 
 
 
