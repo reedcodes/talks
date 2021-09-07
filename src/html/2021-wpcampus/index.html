@@ -501,7 +501,7 @@
           </div>
           <div>
             <pre><code class="language-css" data-trim data-line-numbers>.card {
-  --card-width: max(250px, 50%);
+  --card-width: max(25ch, 50%);
   --card-padding: 1em;
   --card-border-color: var(--purple);
 
@@ -693,6 +693,127 @@
 
       <section>
         <img class="kss-page" data-src="images/screen-card-cta.png" width="1280" height="375" alt="style guide page for Card, now including the new pattern for call to action links" />
+      </section>
+
+
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Let's put even more together! <!-- .element: class="r-fit-text" -->
+
+        Cards on cards on cards... in a grid <!-- .element: class="center" -->
+
+        Notes:
+        - set up a pattern to loop through a json to create a card grid
+      </script></section>
+
+
+
+      <section>
+        <h2><code>./src/layout/_index.scss</code></h2>
+        <pre><code class="language-css" data-trim data-line-numbers>// Layout
+//
+// Weight: 5
+//
+// Styleguide: Layout
+
+// Card Grid
+//
+// A group of cards can be laid out in a grid pattern.
+//
+// Markup: card-grid.twig
+//
+// Weight: 1
+//
+// Styleguide: Layout.CardGrid</code></pre>
+
+        <aside class="notes">
+          like we did with headings and paragraphs under text, we nest the Card Grid section under Layout, and use the comments to create the style guide information
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/layout/card-grid.json</code></h2>
+        <pre><code data-trim data-line-numbers>{
+  "cards": [
+    {
+      "card_heading": "Scelerisque nam eros",
+      "card_description": "Bibendum parturient laoreet a a purus augue hac vestibulum ...",
+      "card_link_text": "A ut parturient",
+      "card_link_url": "index.html"
+    },
+    {
+      "card_heading": "Platea erat suspendisse",
+      "card_description": "Id cubilia scelerisque eu dictum enim mus suscipit a dignissim ...",
+      "card_link_text": "Netus lacinia in aliquet.",
+      "card_link_url": "index.html"
+    },
+    {
+      "card_heading": "Leo imperdiet nascetur",
+      "card_description": "Dui scelerisque nullam adipiscing mi condimentum a laoreet mus tempor ...",
+      "card_link_text": "Potenti placerat nec",
+      "card_link_url": "index.html"
+    }
+  ]
+}</code></pre>
+
+        <aside class="notes">
+          - mentioned earlier we can use JSON files as well as including other Twig files for examples, as long as the filenames are the same, for the styleguide
+          - here: create a JSON "cards" that includes "card" items
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/layout/card-grid.twig</code></h2>
+        <pre><code class="language-dts" data-trim data-line-numbers><div class="card-grid">
+  {% for card in cards %}
+    {% include "@card/card.twig" with {
+      card_heading: card.card_heading,
+      card_description: card.card_description,
+      card_link_text: card.card_link_text,
+      card_link_url: card.card_link_url
+    } %}
+  {% endfor %}
+</div></code></pre>
+
+        <aside class="notes">
+          - in the new card grid pattern, include the Card in the loop through the JSON
+          - pass it the item values to use in the Card pattern
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-grid.png" width="1280" height="780" alt="style guide page for the Card Grid section, displaying the looped through cards, before new styles added" />
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/layout/_index.scss</code></h2>
+        <pre><code class="language-css" data-trim data-line-numbers>.card-grid {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat( auto-fit, minmax( 25ch, 1fr ) );
+
+  .card {
+    --card-width: auto;
+  }
+}</code></pre>
+
+        <aside class="notes">
+          we can go back and add the styles to the layout Sass file for the card grid, to make it a grid
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-grid-grid.png" width="1280" height="480" alt="style guide page for the Card Grid section, with the new styles added to display the cards in a grid" />
       </section>
 
 
