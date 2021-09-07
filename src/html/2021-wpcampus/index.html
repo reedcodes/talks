@@ -154,7 +154,7 @@
   "namespace": [
     "color:src/color",
     "text:src/text",
-    "button:src/button",
+    "link:src/link",
     "card:src/card",
     "layout:src/layout"
   ]
@@ -172,7 +172,7 @@
         <div class="columns">
           <div>
 <pre><code>./src/base/_index.scss
-./src/button/_index.scss
+./src/link/_index.scss
 ./src/card/_index.scss
 ./src/color/_index.scss
 ./src/layout/_index.scss
@@ -180,10 +180,10 @@
           </div>
 
           <div class="fragment">
-<pre><code data-trim data-line-numbers>@use 'base';
-@use 'color';
+<pre><code data-trim data-line-numbers>@use 'color';
+@use 'base';
 @use 'text';
-@use 'button';
+@use 'link';
 @use 'card';
 @use 'layout';</code></pre>
           </div>
@@ -238,6 +238,47 @@
 
       <section>
         <iframe class="kss-page" data-src="http://samplekss.test/styleguide/section-color.html"></iframe>
+      </section>
+
+
+
+      <section>
+        <pre data-id="packagejson-code"><code data-trim data-line-numbers="1|3-12|14-29">// Link
+//
+// **Links** are connections between two resources.
+//
+// :hover - the state when a mouse is hovered over the link
+// :focus - the state when the link has keyboard focus
+//
+// Markup: eg-link.twig
+//
+// Weight: 3
+//
+// Styleguide: Link
+
+a {
+  --color-link: var(--cobalt);
+  --color-link-on: var(--purple);
+
+  color: var(--color-link);
+
+  &:focus,
+  &:hover {
+    color: var(--color-link-on);
+  }
+
+  &:focus {
+    outline: max( 2px, 0.08em ) solid currentColor;
+    outline-offset: max( 2px, 0.08em );
+  }
+}</code></pre>
+        <aside class="notes">
+          - First: name of the pattern - brand colors
+          - Second: description
+          - Third: location of Twig
+          - Next: section of the styleguide, used for creating hierarchy and page URLs
+          - After comments: regular Sass or CSS declarations
+        </aside>
       </section>
 
 
