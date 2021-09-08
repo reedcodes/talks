@@ -984,15 +984,91 @@ Timber::render( 'index.twig', $context );</code></pre>
 
 
       <section>
-        <h2><code>index.twig</code> in the theme</h2>
-        <pre><code data-trim data-line-numbers>&#60;?php
-$context = Timber::context();
-$context['posts'] = Timber::get_posts();
-Timber::render( 'index.twig', $context );</code></pre>
+        <div class="columns equal">
+          <div>
+            <img class="kss-page" data-src="images/screen-header.png" width="918" height="451" alt="display of the global header from the pattern library" />
+          </div>
+          <div>
+            <img class="kss-page" data-src="images/screen-nav.png" width="918" height="243" alt="display of the global nav menu from the pattern library" /><br/>
+            <img class="kss-page" data-src="images/screen-footer.png" width="918" height="248" alt="display of the global footer from the pattern library" />
+          </div>
+        </div>
 
         <aside class="notes">
-          this is something what index.php would look like using Timber, the index.twig would be the actual template file
+          pattern library has header, nav, footer that can be included in the theme
         </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>index.twig</code> in the theme</h2>
+        <pre><code class="language-dts" data-trim data-line-numbers>{% include "@layout/header.twig" with {
+  site_logo_icon: "fa-school", site_title: site.name | striptags | raw, site_url: site.url
+} %}
+
+{% include "@layout/nav.twig" with { nav: main_navigation.items } %}
+
+<main class="main" aria-label="body content">
+  {% for post in posts %}
+    <article class="entry" aria-labelledby="page-title-{{post.id}}">
+      {% include "@text/heading.twig" with {
+        modifier_class: "entry-title",
+        heading_id: "page-title-" ~ post.id
+        heading_level: 1,
+        heading_text: post.title
+      } %}
+      <div class="post-content">
+        {{post.content}}
+      </div>
+    </article>
+  {% endfor %}
+</main>
+
+{% include "@layout/footer.twig" with { site_title: site.name | striptags | raw } %}</code></pre>
+
+        <aside class="notes">
+          this is something what index.twig would look like
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>index.twig</code> in the theme</h2>
+        <pre><code class="language-dts" data-trim data-line-numbers="5">{% include "@layout/header.twig" with {
+  site_logo_icon: "fa-school", site_title: site.name | striptags | raw, site_url: site.url
+} %}
+
+{% include "@layout/nav.twig" with { nav: main_navigation.items } %}
+
+<main class="main" aria-label="body content">
+  {% for post in posts %}
+    <article class="entry" aria-labelledby="page-title-{{post.id}}">
+      {% include "@text/heading.twig" with {
+        modifier_class: "entry-title",
+        heading_id: "page-title-" ~ post.id
+        heading_level: 1,
+        heading_text: post.title
+      } %}
+      <div class="post-content">
+        {{post.content}}
+      </div>
+    </article>
+  {% endfor %}
+</main>
+
+{% include "@layout/footer.twig" with { site_title: site.name | striptags | raw } %}</code></pre>
+
+        <aside class="notes">
+          e.g. for navigation, pass the WordPress nav items as the nav value to the nav Twig file, as we already set up the nav pattern previously
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-wp-index.png" width="1280" height="690" alt="WordPress homepage with the header, navigation, and footer the pattern library included" />
       </section>
 
 
