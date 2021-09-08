@@ -818,6 +818,69 @@
 
 
 
+      <section>
+        <h2 class="r-fit-text">How do we get it into WordPress?</h2>
+      </section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## Sample KSS WordPress theme
+
+        `./sample-kss-wp/package.json`<br/>
+        `./sample-kss-wp/src/style.scss`
+
+        Notes:
+        - start with the stylesheets
+        - create package.json for Sass
+        - add source Sass file
+      </script></section>
+
+
+
+      <section>
+        <h2><code>./sample-kss-wp/package.json</code></h2>
+        <pre><code data-trim data-line-numbers="9">{
+  "name": "sample-kss-wordpress",
+  "version": "1.0.0",
+  "description": "Sample KSS WordPress",
+  "devDependencies": {
+    "sass": "1.35.*"
+  },
+  "scripts": {
+    "build:css": "sass --no-source-map src/style.scss:style.css"
+  }
+}</code></pre>
+
+        <aside class="notes">
+          super simple, just adding the Sass for now - note that the compiled style.css goes to the root, not dist or build
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./sample-kss-wp/src/style.scss</code></h2>
+        <pre><code class="language-css" data-trim data-line-numbers>/*
+Theme Name: Sample KSS WordPress
+...
+*/
+
+@use '../../../../../sample-kss-twig/src/styles.scss';</code></pre>
+
+        <aside class="notes">
+          The theme stylesheet needs to be at the root! so include the pattern library Sass here. Any time a change to the pattern library is made, the theme stylesheet also needs to be compiled. The path to the Sass must be relative to the working source Sass.
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-wp-initial-css.png" width="1280" height="590" alt="WordPress homepage with the base stylesheet from the pattern library included" />
+      </section>
+
+
+
       <partial src="thanks.html" conf="2021-wpcampus"></partial>
     </div>
 
