@@ -322,3 +322,21 @@ footer {
     font-weight: 300;
   }
 }
+
+
+
+// Code highlighting.
+.code-wrapper {
+  display: grid;
+
+  .hljs {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+}
+
+.reveal .hljs:not(:first-child).fragment {
+  position: relative;
+  top: auto;
+  left: auto;
+}

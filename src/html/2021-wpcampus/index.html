@@ -1003,7 +1003,7 @@ Timber::render( 'index.twig', $context );</code></pre>
 
       <section>
         <h2><code>index.twig</code> in the theme</h2>
-        <pre><code class="language-dts" data-trim data-line-numbers>{% include "@layout/header.twig" with {
+        <pre><code class="language-dts" data-trim data-line-numbers="|5">{% include "@layout/header.twig" with {
   site_logo_icon: "fa-school", site_title: site.name | striptags | raw, site_url: site.url
 } %}
 
@@ -1028,40 +1028,8 @@ Timber::render( 'index.twig', $context );</code></pre>
 {% include "@layout/footer.twig" with { site_title: site.name | striptags | raw } %}</code></pre>
 
         <aside class="notes">
-          this is something what index.twig would look like
-        </aside>
-      </section>
-
-
-
-      <section>
-        <h2><code>index.twig</code> in the theme</h2>
-        <pre><code class="language-dts" data-trim data-line-numbers="5">{% include "@layout/header.twig" with {
-  site_logo_icon: "fa-school", site_title: site.name | striptags | raw, site_url: site.url
-} %}
-
-{% include "@layout/nav.twig" with { nav: main_navigation.items } %}
-
-<main class="main" aria-label="body content">
-  {% for post in posts %}
-    <article class="entry" aria-labelledby="page-title-{{post.id}}">
-      {% include "@text/heading.twig" with {
-        modifier_class: "entry-title",
-        heading_id: "page-title-" ~ post.id
-        heading_level: 1,
-        heading_text: post.title
-      } %}
-      <div class="post-content">
-        {{post.content}}
-      </div>
-    </article>
-  {% endfor %}
-</main>
-
-{% include "@layout/footer.twig" with { site_title: site.name | striptags | raw } %}</code></pre>
-
-        <aside class="notes">
-          e.g. for navigation, pass the WordPress nav items as the nav value to the nav Twig file, as we already set up the nav pattern previously
+          - this is something what index.twig would look like
+          - e.g. for navigation, pass the WordPress nav items as the nav value to the nav Twig file, as we already set up the nav pattern previously
         </aside>
       </section>
 
@@ -1069,6 +1037,198 @@ Timber::render( 'index.twig', $context );</code></pre>
 
       <section>
         <img class="kss-page" data-src="images/screen-wp-index.png" width="1280" height="690" alt="WordPress homepage with the header, navigation, and footer the pattern library included" />
+      </section>
+
+
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Adding Twig Patterns to Custom Blocks <!-- .element: class="r-fit-text" -->
+
+        Notes:
+        - pattern library already defined as WP dropin
+        - WP already knows where to look for the dropin pattern library
+        - let's tell the custom blocks plugin how to use the Twig patterns
+      </script></section>
+
+
+
+      <section>
+        <h2><code>composer.json</code> for the custom blocks</h2>
+        <pre><code data-trim data-line-numbers="3-5">{
+  ...
+  "require": {
+    "timber/timber": "^1.17"
+  }
+  ...
+}</code></pre>
+
+        <aside class="notes">
+          require Timber again
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>card/index.js</code></h2>
+        <p>Creating the block in the custom blocks plugin</p>
+        <pre><code class="language-javascript" data-trim data-line-numbers="|1,11|13">import CardEdit from './edit.js';
+
+const Card = ( () => {
+  const { registerBlockType } = wp.blocks;
+
+  registerBlockType( 'sample-kss-twig/card', {
+    title: 'Card',
+    description: 'A card includes content and a call to action.',
+    category: 'design',
+
+    edit: ( props ) => { return ( CardEdit( props ) ); },
+
+    save: () => { return null; }
+  });
+} )();
+
+export default Card;</code></pre>
+
+        <aside class="notes">
+          - brief overview of including Twig patterns, not going over building dynamic blocks
+          - for cleaner code, edit function is in its own file
+          - save function returns null since the block is dynamic and we're going to pass the values to the Twig pattern next
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>card/edit.js</code></h2>
+        <pre><code class="language-javascript" data-trim data-line-numbers="|4|12-17|6"><script type="text/template">const CardEdit = ( props ) => {
+  const { RichText, URLInputButton } = wp.blockEditor;
+  const { Fragment } = wp.element;
+  const { heading, description, linkText, linkUrl } = props.attributes;
+  ...
+  const onChangeHeading = ( value ) => { setAttributes( { heading: value } ) };
+  ...
+
+  return(
+    <Fragment>
+      <p><b>Card Heading:</b>
+        <RichText
+          value={ heading }
+          onChange={ onChangeHeading }
+          placeholder='A Catchy Headline'
+          allowedFormats={ [] }
+        />
+      </p>
+      ...
+    </Fragment>
+  );
+};
+export default CardEdit;</script></code></pre>
+
+        <aside class="notes">
+          - super basic edit function for Card
+          - define the attributes we need for the Card, as defined in the pattern
+          - add a field for the editor to input the content
+          - add an event to set the attribute to the input value
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-edit.png" width="835" height="390" alt="editor screen in WordPress, with the Card block added" />
+
+        <aside class="notes">
+          the most basic block, with minimal fields and styling
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>card/register.php</code></h2>
+        <pre><code class="language-php" data-trim data-line-numbers>...
+
+public function register(): void {
+  register_block_type( 'sample-kss-twig/card', [
+    'attributes' => [
+      'heading'     => [ 'type' => 'string', 'default' => '' ],
+      'description' => [ 'type' => 'string', 'default' => '' ],
+      'link_text'   => [ 'type' => 'string', 'default' => '' ],
+      'link_url'    => [ 'type' => 'string', 'default' => '' ]
+    ],
+
+    'render_callback' => [ $this, 'render' ]
+  ] );
+}
+
+...</code></pre>
+
+        <aside class="notes">
+          registering the attributes we need to pass through the Twig pattern
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>card/register.php</code></h2>
+        <pre><code class="language-php" data-trim data-line-numbers="|4|9,14|10">...
+
+public function render( $attributes, $content ): string {
+  $heading = $attributes['heading'] ?? '';
+  $description = $attributes['description'] ?? '';
+  $link_text = $attributes['linkText'] ?? '';
+  $link_url = $attributes['linkUrl'] ?? '';
+
+  return Timber::fetch( '@card/card.twig', [
+    'card_heading'     => $heading,
+    'card_description' => $description,
+    'card_link_text'   => $link_text,
+    'card_link_url'    => $link_url
+  ] );
+}
+
+...</code></pre>
+
+        <aside class="notes">
+          - grabbing the attributes defined from the block when edited and saved
+          - calling the Twig pattern we want from the pattern library
+          - passing the block's values to the pattern's variables
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-front.png" width="1280" height="605" alt="front-end view of the Card block using the Twig patterns" />
+      </section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## Build All the Things! <!-- .element: class="r-fit-text" -->
+
+        Notes:
+        once the basic pieces are in place, new features can be added based on the existing patterns
+      </script></section>
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-grid-front.png" width="1280" height="605" alt="front-end view of the Card Grid block using the Twig patterns" />
+
+        <aside class="notes">
+          adding more patterns to build additional custom blocks
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-search-front.png" width="1280" height="605" alt="new Search bar added to the navigation using the Twig patterns" />
+
+        <aside class="notes">
+          adding more patterns to enhance design and functionality to the theme
+        </aside>
       </section>
 
 
