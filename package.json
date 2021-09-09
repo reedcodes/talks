@@ -16,17 +16,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
-    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "babel-preset-minify": "^0.5.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-dart-sass": "^1.0.2",
     "gulp-html-partial": "^1.0.1",
-    "include-media": "^1.4.9",
+    "include-media": "^1.4.10",
     "jquery": "^3.6.0",
-    "reveal.js": "^4.1.0"
+    "reveal.js": "^4.1.3"
   }
 }

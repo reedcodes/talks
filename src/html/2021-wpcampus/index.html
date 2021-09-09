@@ -1,0 +1,1255 @@
+<!doctype html>
+<html>
+
+<partial src="head.html" css="kss-list" title="KSS on My List presentation at WPCampus 2021"></partial>
+
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <partial src="intro.html" role="position" position="Senior Web Front-end Developer" university="Georgetown University, Washington DC"></partial>
+
+      <section>
+        <header class="title">
+          <h1>KSS on My List</h1>
+          <p>building a living style guide & pattern library with KSS-Node</p>
+        </header>
+      </section>
+
+      <section data-markdown><script type="text/template">
+        ## What we'll go over:
+
+        - installing and setting up KSS-Node
+        - using Twig and CSS comments
+        - getting WordPress to use the new patterns
+
+        Notes:
+        - using Sass but KSS-Node is adaptable to CSS or any CSS preprocessor or framework
+      </script></section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## What we won't go over:
+
+        - CSS or Sass frameworks
+        - OOCSS, BEM, SMACSS, or Atomic
+        - creating Gutenberg blocks
+        - setting up WordPress themes
+
+        Notes:
+        - we'll go over how to define certain attributes in the CSS files, but no one method is preferred over another
+        - we'll go over how to include the Twig patterns in the custom blocks and themes, but not the particulars of setting them up
+      </script></section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## Create the Directory Structure
+
+        ### for the style guide
+
+        `./builder`<br/>
+        `./styleguide`
+
+        ### for the pattern library
+
+        `./src`<br/>
+        `./dist`
+
+        Notes:
+        - can be named anything according to your team's coding conventions
+        - builder: the scripts and templates that build the style guide
+        - styleguide: the generated output
+        - src: the source Sass and Twig files
+        - dist: the compiled stylesheet assets
+      </script></section>
+
+
+
+      <section data-auto-animate>
+        <h2 data-id="packagejson-title"><code>./package.json</code></h2>
+<pre data-id="packagejson-code"><code data-trim data-line-numbers>{
+  "name": "sample-kss",
+  "version": "1.0.0",
+  "description": "Sample KSS",
+  "devDependencies": {
+    "sass": "1.35.*",
+    "kss": "3.0.*"
+  }
+}</code></pre>
+        <aside class="notes">
+          <ul>
+            <li>set up the package.json file, very basic project info</li>
+            <li>right now, only add sass and kss-node</li>
+            <li>then, npm install</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h2 data-id="packagejson-title"><code>./package.json</code></h2>
+<pre data-id="packagejson-code"><code data-trim data-line-numbers>{
+  "name": "sample-kss",
+  "version": "1.0.0",
+  "description": "Sample KSS",
+  "devDependencies": {
+    "sass": "1.35.*",
+    "kss": "3.0.*"
+  },
+  "scripts": {
+    "build:kss": "kss --config kss-config.json",
+    "build:css": "sass --no-source-map src:dist/css"
+  }
+}</code></pre>
+        <aside class="notes">
+          <ul>
+            <li>include the scripts to build css and kss</li>
+            <li>no files, so scripts do nothing right now</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## Copy the Base Template
+
+        `./node_modules/kss/builder/twig`
+
+        <span class="fas fa-arrow-down"></span>
+
+        `./builder/twig`
+
+        Notes:
+        - default Twig builder that comes with kss-node
+        - customize the Twig and/or CSS to theme the builder
+        - other 3rd-party builders available
+        - example uses Twig version of Michelangelo builder
+      </script></section>
+
+
+
+      <section>
+        <h2 data-id="kssconfigjson-title"><code>./kss-config.json</code></h2>
+<pre data-id="kssconfigjson-code"><code data-trim data-line-numbers>{
+  "title": "Sample KSS",
+  "source": "src/",
+  "destination": "styleguide/",
+  "builder": "builder/twig/",
+  "css": "../dist/css/styles.css"
+}</code></pre>
+        <aside class="notes">
+          <ul>
+            <li>Configure the KSS .json File</li>
+            <li>The source, destination, and builder are relative to the kss-config.json file</li>
+            <li>The css path is relative to the generated style guide files</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2>Create the Pattern Library Directories</h2>
+          <pre><code>./src/base/_index.scss
+./src/color/_index.scss
+./src/text/_index.scss
+./src/link/_index.scss
+./src/card/_index.scss
+./src/layout/_index.scss
+</code></pre>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/styles.scss</code></h2>
+          <pre><code class="language-css" data-trim data-line-numbers>@use 'color';
+@use 'base';
+@use 'text';
+@use 'link';
+@use 'card';
+@use 'layout';</code></pre>
+
+        <aside class="notes">
+          include the Sass partials even though there's nothing yet, so we have something to build from later
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2 data-id="kssconfigjson-title"><code>./kss-config.json</code></h2>
+<pre data-id="kssconfigjson-code"><code data-trim data-line-numbers>{
+  "title": "Sample KSS",
+  "source": "src/",
+  "destination": "styleguide/",
+  "builder": "builder/",
+  "css": "../dist/css/styles.css",
+  "namespace": [
+    "color:src/color",
+    "text:src/text",
+    "link:src/link",
+    "card:src/card",
+    "layout:src/layout"
+  ]
+}</code></pre>
+        <aside class="notes">
+          because we'll reference Twig from pattern library, custom blocks, custom themes, let's give our patterns a namespace
+        </aside>
+      </section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## Let's add the first patterns! <!-- .element: class="r-fit-text" -->
+      </script></section>
+
+
+
+      <section>
+        <h2><code>./src/color/_index.scss</code></h2>
+        <div class="columns equal">
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers="|1|3-9|11|13">// Brand Colors
+//
+// Colors:
+// --darkgray: rgb(37, 41, 53) - Dark Gray
+// --purple: rgb(125, 59, 106) - Purple
+// --cobalt: rgb(0, 121, 140) - Cobalt
+// --crimson: rgb(208, 55, 17) - Crimson
+// --goldenrod: rgb(246, 174, 45) - Goldenrod
+// --icewhite: rgb(248, 245, 242) - Ice White
+//
+// Weight: 1
+//
+// Styleguide: Color</code></pre>
+          </div>
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers="1,8|1-8">:root {
+  --darkgray: rgb(37, 41, 53);
+  --purple: rgb(125, 59, 106);
+  --cobalt: rgb(0, 121, 140);
+  --crimson: rgb(208, 55, 17);
+  --goldenrod: rgb(246, 174, 45);
+  --icewhite: rgb(248, 245, 242);
+}</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <ul>
+            <li>First: name of the pattern - brand colors</li>
+            <li>Second: specify colors, then list the colors - name, code, description</li>
+            <li>Third: weight of the page</li>
+            <li>Next: section of the styleguide, used for creating hierarchy and page URLs</li>
+            <li>After comments: regular Sass or CSS declarations</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-color.png" width="1280" height="490" alt="grid display of the brand colors in use for the example style guide" />
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/text/_index.scss</code></h2>
+        <div class="columns equal">
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers>// Text
+//
+// Weight: 2
+//
+// Styleguide: Text</code></pre>
+          </div>
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers="|1,11|3,13|5,15|7,17|9,19">// Heading
+//
+// Heading content defines the header of a section.
+//
+// Markup: eg-heading.twig
+//
+// Weight: 1
+//
+// Styleguide: Text.Heading
+
+// Paragraph
+//
+// A paragraph is phrasing content one or more sentences.
+//
+// Markup: eg-paragraph.twig
+//
+// Weight: 2
+//
+// Styleguide: Text.Paragraph</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <ul>
+            <li>First: name of the pattern</li>
+            <li>Second: description</li>
+            <li>Next: location of Twig to use as an example to show in the style guide</li>
+            <li>Then: default sort of styleguide is alpha, add weight to create custom list sort</li>
+            <li>Last: section of the styleguide, used for creating hierarchy and page URLs</li>
+            <li>Heading and Paragraph are nested under Text</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/text/heading.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{%- set heading_level = heading_level | default(2) -%}
+
+<h{{heading_level}} class="text-heading {{modifier_class}}">{{heading_text}}</h{{heading_level}}></code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>create the Twig to use for the link pattern</li>
+            <li>add any variables for use, here: the heading level and the heading text</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/text/heading.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{%- set heading_level = heading_level | default(2) -%}
+
+<h{{heading_level}} class="text-heading">{{heading_text}}</h{{heading_level}}></code></pre>
+
+        <h2><code>./src/text/eg-heading.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{% include "@text/heading.twig" with { heading_text: "Taciti feugiat a sapien parturient" } %}
+
+{% include "@text/heading.twig" with {
+  heading_level: 3,
+  heading_text: "Mi venenatis mus elementum"
+} %}
+
+{% include "@text/heading.twig" with {
+  heading_level: 4,
+  heading_text: "Posuere non sit pharetra"
+} %}</code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>create the example Twig on how to use the actual Twig pattern file</li>
+            <li>the style guide will know what to do with this example file, since we added it in the comments of the Sass</li>
+            <li>here: passing in example values for the variables</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-text-heading.png" width="1280" height="818" alt="style guide page for the Text.Heading section, illustrating the description, example pattern, and code" />
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/text/paragraph.twig</code></h2>
+        <pre><code data-trim data-line-numbers><p class="text-paragraph">{{paragraph_text}}</p></code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>create the Twig to use for the link pattern</li>
+            <li>add any variables for use, here: the paragraph text</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/text/paragraph.twig</code></h2>
+        <pre><code data-trim data-line-numbers><p class="text-paragraph">{{paragraph_text}}</p></code></pre>
+
+        <h2><code>./src/text/eg-paragraph.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{% include "@text/paragraph.twig" with {
+  paragraph_text: "Curabitur vestibulum enim rutrum nostra dui eros sed sed vestibulum ..."
+} %}</code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>create the example Twig on how to use the actual Twig pattern file</li>
+            <li>the style guide will know what to do with this example file, since we added it in the comments of the Sass</li>
+            <li>here: passing in example values for the variables</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-text-paragraph.png" width="1280" height="500" alt="style guide page for the Text.Paragraph section, illustrating the description, example pattern, and code" />
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/link/_index.scss</code></h2>
+        <div class="columns equal">
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers="|1|3|5-6|8|10|12">// Link
+//
+// **Links** are connections between two resources...
+//
+// :hover - the mouse hover state
+// :focus-visible - the keyboard focus state
+//
+// Markup: eg-link.twig
+//
+// Weight: 3
+//
+// Styleguide: Link</code></pre>
+          </div>
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers>a {
+  --color-link: var(--cobalt);
+  --color-link-on: var(--purple);
+  --outline-link-size: max( 2px, 0.08em );
+
+  color: var(--color-link);
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color: var(--color-link-on);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline-size: var(--outline-link-size);
+    outline-style: solid;
+    outline-color: currentColor;
+    outline-offset: var(--outline-link-size);
+  }
+
+  :focus:not(:focus-visible) { outline: none; }
+}</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <ul>
+            <li>First: name of the pattern</li>
+            <li>Second: description</li>
+            <li>Third: modifiers, or variants of the pattern, e.g. classes or pseudo-classes</li>
+            <li>Next: location of Twig to use as an example to show in the style guide</li>
+            <li>Then: default sort of styleguide is alpha, add weight to create custom list sort</li>
+            <li>Last: section of the styleguide, used for creating hierarchy and page URLs</li>
+            <li>After comments: regular Sass or CSS declarations</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/link/link.twig</code></h2>
+        <pre><code data-trim data-line-numbers><a class="text-link {{modifier_class}}" href="{{link_url}}">{{link_text}}</a></code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>create the Twig to use for the link pattern</li>
+            <li>add any variables for use, here: the link url and the link text</li>
+            <li>modifier_class is unique for kss-node but is really useful!</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate>
+        <h2><code>./src/link/link.twig</code></h2>
+        <pre><code data-trim data-line-numbers><a class="text-link {{modifier_class}}" href="{{link_url}}">{{link_text}}</a></code></pre>
+
+        <h2><code>./src/link/eg-link.twig</code></h2>
+        <pre><code data-trim data-line-numbers>{% include "@link/link.twig" with {
+  link_text: "Facilisi dictum a parturient",
+  link_url: "#"
+} %}</code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>create the example Twig on how to use the actual Twig pattern file</li>
+            <li>the style guide will know what to do with this example file, since we added it in the comments of the Sass</li>
+            <li>here: passing in example values for the variables</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-link.png" width="1280" height="700" alt="style guide page for the Link section, illustrating the description, example pattern, and code" />
+      </section>
+
+
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Let's put it together! <!-- .element: class="r-fit-text" -->
+
+        We have enough patterns to create a new Card pattern <!-- .element: class="center" -->
+
+        Notes:
+        - add styles to the card, and need to update existing styles
+      </script></section>
+
+
+
+      <section>
+        <h2><code>./src/card/_index.scss</code></h2>
+        <div class="columns equal">
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers>// Card
+//
+// A card includes content and a call to action.
+//
+// Markup: card.twig
+//
+// Weight: 4
+//
+// Styleguide: Card</code></pre>
+          </div>
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers>.card {
+  --card-width: max(25ch, 50%);
+  --card-padding: 1em;
+  --card-border-color: var(--purple);
+
+  width: var(--card-width);
+  padding: var(--card-padding);
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--card-padding);
+
+  :is( h2, h3, h4 ):first-child {
+    margin-top: 0;
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          same comments as before, including
+          <ul>
+            <li>name of the pattern - Link</li>
+            <li>description</li>
+            <li>location of Twig</li>
+            <li>section of the styleguide</li>
+            <li>regular Sass</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/card/card.twig</code></h2>
+        <pre><code class="language-dts" data-trim data-line-numbers="|3-6|9|11-15|12"><div class="card">
+  {% if card_heading %}
+    {% include "@text/heading.twig" with {
+      heading_level: 3,
+      heading_text: card_heading
+    } %}
+  {% endif %}
+
+  {% include "@text/paragraph.twig" with { paragraph_text: card_description } %}
+
+  {% include "@link/link.twig" with {
+    modifier_class: "cta-link",
+    link_text: card_link_text,
+    link_url: card_link_url
+  } %}
+</div></code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>new Card-specific variables</li>
+            <li>include the heading, paragraph, link Twig</li>
+            <li>tell those Twigs to use the Card values</li>
+            <li>new! modifier_class passed to the link pattern</li>
+            <li>specific to the Card pattern</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/card/card.json</code></h2>
+        <pre><code data-trim data-line-numbers>{
+  "card_heading": "Scelerisque nam eros parturient",
+  "card_description": "Bibendum parturient laoreet a a purus augue hac vestibulum ac sociosqu felis integer.",
+  "card_link_text": "A ut parturient",
+  "card_link_url": "#"
+}</code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>new! before we used example Twig files</li>
+            <li>can also use json to pass values into the Twig</li>
+            <li>in the styleguide, if using json, the filename must match the Twig filename</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card.png" width="1280" height="360" alt="style guide page for the new Card, illustrating the existing heading, paragraph, and link inside the new Card pattern" />
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/link/_index.scss</code></h2>
+        <div class="columns equal">
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers="5-7">// ...
+//
+// :hover - the mouse hover state
+// :focus-visible - the keyboard focus state
+// .cta-link - links used for calls to action
+// .cta-link:hover - hover state for CTA links
+// .cta-link:focus-visible - focus state for CTA links
+//
+// ...</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          add new modifiers for the CTA Link class, and pseudo-classes
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/link/_index.scss</code></h2>
+        <div class="columns equal">
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers="5-6,9,15">a {
+  --color-link: var(--cobalt);
+  --color-link-on: var(--purple);
+  --outline-link-size: max( 2px, 0.08em );
+  --color-link-bg: transparent;
+  --color-link-bg-on: transparent;
+
+  color: var(--color-link);
+  background-color: var(--color-link-bg);
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color: var(--color-link-on);
+    background-color: var(--color-link-bg-on);
+  }
+  ...
+}</code></pre>
+          </div>
+          <div>
+            <pre><code class="language-css" data-trim data-line-numbers>.cta-link {
+  --color-link: var(--icewhite);
+  --color-link-on: var(--icewhite);
+  --color-link-bg: var(--purple);
+  --color-link-bg-on: var(--cobalt);
+
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  border-radius: 0.5em;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+
+  &:focus,
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 0.2em var(--color-link-on),
+                0 0 0 0.4em var(--color-link-bg-on);
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <ul>
+            <li>adjust the link to allow for additional classes</li>
+            <li>add the new CSS declarations for the CTA link styles</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-link-cta.png" width="1280" height="730" alt="style guide page for Link, illustrating the new pattern for call to action links" />
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-cta.png" width="1280" height="375" alt="style guide page for Card, now including the new pattern for call to action links" />
+      </section>
+
+
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Let's put even more together! <!-- .element: class="r-fit-text" -->
+
+        Cards on cards on cards... in a grid <!-- .element: class="center" -->
+
+        Notes:
+        - set up a pattern to loop through a json to create a card grid
+      </script></section>
+
+
+
+      <section>
+        <h2><code>./src/layout/_index.scss</code></h2>
+        <pre><code class="language-css" data-trim data-line-numbers>// Layout
+//
+// Weight: 5
+//
+// Styleguide: Layout
+
+// Card Grid
+//
+// A group of cards can be laid out in a grid pattern.
+//
+// Markup: card-grid.twig
+//
+// Weight: 1
+//
+// Styleguide: Layout.CardGrid</code></pre>
+
+        <aside class="notes">
+          like we did with headings and paragraphs under text, we nest the Card Grid section under Layout, and use the comments to create the style guide information
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/layout/card-grid.json</code></h2>
+        <pre><code data-trim data-line-numbers>{
+  "cards": [
+    {
+      "card_heading": "Scelerisque nam eros",
+      "card_description": "Bibendum parturient laoreet a a purus augue hac vestibulum ...",
+      "card_link_text": "A ut parturient",
+      "card_link_url": "#"
+    },
+    {
+      "card_heading": "Platea erat suspendisse",
+      "card_description": "Id cubilia scelerisque eu dictum enim mus suscipit a dignissim ...",
+      "card_link_text": "Netus lacinia in aliquet",
+      "card_link_url": "#"
+    },
+    {
+      "card_heading": "Leo imperdiet nascetur",
+      "card_description": "Dui scelerisque nullam adipiscing mi condimentum a laoreet mus tempor ...",
+      "card_link_text": "Potenti placerat nec",
+      "card_link_url": "#"
+    }
+  ]
+}</code></pre>
+
+        <aside class="notes">
+          mentioned earlier we can use JSON files as well as including other Twig files for examples, as long as the filenames are the same, for the styleguide - here: create a JSON "cards" that includes "card" items
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/layout/card-grid.twig</code></h2>
+        <pre><code class="language-dts" data-trim data-line-numbers="|2,9"><div class="card-grid">
+  {% for card in cards %}
+    {% include "@card/card.twig" with {
+      card_heading: card.card_heading,
+      card_description: card.card_description,
+      card_link_text: card.card_link_text,
+      card_link_url: card.card_link_url
+    } %}
+  {% endfor %}
+</div></code></pre>
+
+        <aside class="notes">
+          in the new card grid pattern, include the Card in the loop through the JSON and pass it the item values to use in the Card pattern
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-grid.png" width="1280" height="780" alt="style guide page for the Card Grid section, displaying the looped through cards, before new styles added" />
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/layout/_index.scss</code></h2>
+        <pre><code class="language-css" data-trim data-line-numbers>.card-grid {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat( auto-fit, minmax( 25ch, 1fr ) );
+
+  .card {
+    --card-width: auto;
+  }
+}</code></pre>
+
+        <aside class="notes">
+          we can go back and add the styles to the layout Sass file for the card grid, to make it a grid
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-grid-grid.png" width="1280" height="480" alt="style guide page for the Card Grid section, with the new styles added to display the cards in a grid" />
+      </section>
+
+
+
+      <section>
+        <h2 class="r-fit-text">How do we get it into WordPress?</h2>
+      </section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## Sample KSS WordPress theme
+
+        `./sample-kss-wp/package.json`<br/>
+        `./sample-kss-wp/src/style.scss`
+
+        Notes:
+        - start with the stylesheets
+        - create package.json for Sass
+        - add source Sass file
+      </script></section>
+
+
+
+      <section>
+        <h2><code>./sample-kss-wp/package.json</code></h2>
+        <pre><code data-trim data-line-numbers="9">{
+  "name": "sample-kss-wordpress",
+  "version": "1.0.0",
+  "description": "Sample KSS WordPress",
+  "devDependencies": {
+    "sass": "1.35.*"
+  },
+  "scripts": {
+    "build:css": "sass --no-source-map src/style.scss:style.css"
+  }
+}</code></pre>
+
+        <aside class="notes">
+          super simple, just adding the Sass for now - note that the compiled style.css goes to the root, not dist or build
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>./sample-kss-wp/src/style.scss</code></h2>
+        <pre><code class="language-css" data-trim data-line-numbers>/*
+Theme Name: Sample KSS WordPress
+...
+*/
+
+@use '../../../../../sample-kss-twig/src/styles.scss';</code></pre>
+
+        <aside class="notes">
+          The theme stylesheet needs to be at the root! so include the pattern library Sass here. Any time a change to the pattern library is made, the theme stylesheet also needs to be compiled. The path to the Sass must be relative to the working source Sass.
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-wp-initial-css.png" width="1280" height="590" alt="WordPress homepage with the base stylesheet from the pattern library included" />
+      </section>
+
+
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Including the Twig Patterns in Themes <!-- .element: class="r-fit-text" -->
+
+        Notes:
+        - our WP is a composer-based build, each repo has its own composer.json
+      </script></section>
+
+
+
+      <section>
+        <h2><code>composer.json</code> for the Pattern Library</h2>
+        <pre><code data-trim data-line-numbers="4">{
+  "name": "georgetown-university/pattern-library",
+  ...
+  "type": "wordpress-dropin"
+  }</code></pre>
+
+        <aside class="notes">
+          tell the pattern library to act as a dropin for WordPress
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>composer.json</code> for the WordPress build</h2>
+        <pre><code data-trim data-line-numbers="5-6,11-13">{
+  ...
+  "require": {
+    ...
+    "georgetown-university/pattern-library": "1.18.*",
+    "georgetown-university/wp-mu-plugin-pattern-library-loader": "2.0.*"
+    ...
+  },
+  "extra": {
+    ...
+    "web/wp-content/{$name}": [
+      "type:wordpress-dropin"
+    ]
+  }
+}</code></pre>
+
+        <aside class="notes">
+          require WordPress to use the pattern library and loader loader - this tells WordPress how to load the namespace from the kss-config.json in the pattern library. then tell WP where to put the dropin directories
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>composer.json</code> for the theme</h2>
+        <pre><code data-trim data-line-numbers="3-5">{
+  ...
+  "require": {
+    "timber/timber": "^1.17"
+  }
+  ...
+}</code></pre>
+
+        <aside class="notes">
+          require Timber, which helps in writing Twig files for WP themes
+        </aside>
+      </section>
+
+
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Adding Twig Patterns to a Theme Template <!-- .element: class="r-fit-text" -->
+
+        Notes:
+        - defined the pattern library as a WordPress dropin
+        - told WordPress where to store the dropin files/directories
+        - required the pattern library and loader loader in the WP build
+        - required Timber for templating in the theme
+      </script></section>
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Adding Twig Patterns to a Theme Template <!-- .element: class="r-fit-text" -->
+
+        [https://timber.github.io/docs/getting-started/theming/](https://timber.github.io/docs/getting-started/theming/) <!-- .element: class="r-fit-text" -->
+
+        Notes:
+        - setting up and using Timber beyond scope of presentation
+        - great docs at the Timber Github repo
+      </script></section>
+
+
+
+      <section>
+        <h2><code>index.php</code> in the theme</h2>
+        <pre><code data-trim data-line-numbers>&#60;?php
+$context = Timber::context();
+$context['posts'] = Timber::get_posts();
+Timber::render( 'index.twig', $context );</code></pre>
+
+        <aside class="notes">
+          this is something what index.php would look like using Timber, the index.twig would be the actual template file
+        </aside>
+      </section>
+
+
+
+      <section>
+        <div class="columns equal">
+          <div>
+            <img class="kss-page" data-src="images/screen-header.png" width="918" height="451" alt="display of the global header from the pattern library" />
+          </div>
+          <div>
+            <img class="kss-page" data-src="images/screen-nav.png" width="918" height="243" alt="display of the global nav menu from the pattern library" /><br/>
+            <img class="kss-page" data-src="images/screen-footer.png" width="918" height="248" alt="display of the global footer from the pattern library" />
+          </div>
+        </div>
+
+        <aside class="notes">
+          pattern library has header, nav, footer that can be included in the theme
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>index.twig</code> in the theme</h2>
+        <pre><code class="language-dts" data-trim data-line-numbers="|5">{% include "@layout/header.twig" with {
+  site_logo_icon: "fa-school", site_title: site.name | striptags | raw, site_url: site.url
+} %}
+
+{% include "@layout/nav.twig" with { nav: main_navigation.items } %}
+
+<main class="main" aria-label="body content">
+  {% for post in posts %}
+    <article class="entry" aria-labelledby="page-title-{{post.id}}">
+      {% include "@text/heading.twig" with {
+        modifier_class: "entry-title",
+        heading_id: "page-title-" ~ post.id
+        heading_level: 1,
+        heading_text: post.title
+      } %}
+      <div class="post-content">
+        {{post.content}}
+      </div>
+    </article>
+  {% endfor %}
+</main>
+
+{% include "@layout/footer.twig" with { site_title: site.name | striptags | raw } %}</code></pre>
+
+        <aside class="notes">
+          this is something what index.twig would look like e.g. for navigation, pass the WordPress nav items as the nav value to the nav Twig file, as we already set up the nav pattern previously
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-wp-index.png" width="1280" height="690" alt="WordPress homepage with the header, navigation, and footer the pattern library included" />
+      </section>
+
+
+
+      <section data-auto-animate data-markdown><script type="text/template">
+        ## Adding Twig Patterns to Custom Blocks <!-- .element: class="r-fit-text" -->
+
+        Notes:
+        - pattern library already defined as WP dropin
+        - WP already knows where to look for the dropin pattern library
+        - let's tell the custom blocks plugin how to use the Twig patterns
+      </script></section>
+
+
+
+      <section>
+        <h2><code>composer.json</code> for the custom blocks</h2>
+        <pre><code data-trim data-line-numbers="3-5">{
+  ...
+  "require": {
+    "timber/timber": "^1.17"
+  }
+  ...
+}</code></pre>
+
+        <aside class="notes">
+          require Timber again
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>card/index.js</code></h2>
+        <p>Creating the block in the custom blocks plugin</p>
+        <pre><code class="language-javascript" data-trim data-line-numbers="|1,11|13">import CardEdit from './edit.js';
+
+const Card = ( () => {
+  const { registerBlockType } = wp.blocks;
+
+  registerBlockType( 'sample-kss-twig/card', {
+    title: 'Card',
+    description: 'A card includes content and a call to action.',
+    category: 'design',
+
+    edit: ( props ) => { return ( CardEdit( props ) ); },
+
+    save: () => { return null; }
+  });
+} )();
+
+export default Card;</code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>brief overview of including Twig patterns, not going over building dynamic blocks</li>
+            <li>for cleaner code, edit function is in its own file</li>
+            <li>save function returns null since the block is dynamic and we're going to pass the values to the Twig pattern next</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>card/edit.js</code></h2>
+        <pre><code class="language-javascript" data-trim data-line-numbers="|4|12-17|6"><script type="text/template">const CardEdit = ( props ) => {
+  const { RichText, URLInputButton } = wp.blockEditor;
+  const { Fragment } = wp.element;
+  const { heading, description, linkText, linkUrl } = props.attributes;
+  ...
+  const onChangeHeading = ( value ) => { setAttributes( { heading: value } ) };
+  ...
+
+  return(
+    <Fragment>
+      <p><b>Card Heading:</b>
+        <RichText
+          value={ heading }
+          onChange={ onChangeHeading }
+          placeholder='A Catchy Headline'
+          allowedFormats={ [] }
+        />
+      </p>
+      ...
+    </Fragment>
+  );
+};
+export default CardEdit;</script></code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>super basic edit function for Card</li>
+            <li>define the attributes we need for the Card, as defined in the pattern</li>
+            <li>add a field for the editor to input the content</li>
+            <li>add an event to set the attribute to the input value</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-edit.png" width="835" height="390" alt="editor screen in WordPress, with the Card block added" />
+
+        <aside class="notes">
+          the most basic block, with minimal fields and styling
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>card/register.php</code></h2>
+        <pre><code class="language-php" data-trim data-line-numbers>...
+
+public function register(): void {
+  register_block_type( 'sample-kss-twig/card', [
+    'attributes' => [
+      'heading'     => [ 'type' => 'string', 'default' => '' ],
+      'description' => [ 'type' => 'string', 'default' => '' ],
+      'link_text'   => [ 'type' => 'string', 'default' => '' ],
+      'link_url'    => [ 'type' => 'string', 'default' => '' ]
+    ],
+
+    'render_callback' => [ $this, 'render' ]
+  ] );
+}
+
+...</code></pre>
+
+        <aside class="notes">
+          registering the attributes we need to pass through the Twig pattern
+        </aside>
+      </section>
+
+
+
+      <section>
+        <h2><code>card/register.php</code></h2>
+        <pre><code class="language-php" data-trim data-line-numbers="|4|9,14|10">...
+
+public function render( $attributes, $content ): string {
+  $heading = $attributes['heading'] ?? '';
+  $description = $attributes['description'] ?? '';
+  $link_text = $attributes['linkText'] ?? '';
+  $link_url = $attributes['linkUrl'] ?? '';
+
+  return Timber::fetch( '@card/card.twig', [
+    'card_heading'     => $heading,
+    'card_description' => $description,
+    'card_link_text'   => $link_text,
+    'card_link_url'    => $link_url
+  ] );
+}
+
+...</code></pre>
+
+        <aside class="notes">
+          <ul>
+            <li>grabbing the attributes defined from the block when edited and saved
+            <li>calling the Twig pattern we want from the pattern library</li>
+            <li>passing the block's values to the pattern's variables</li>
+          </ul>
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-front.png" width="1280" height="605" alt="front-end view of the Card block using the Twig patterns" />
+      </section>
+
+
+
+      <section data-markdown><script type="text/template">
+        ## Build All the Things! <!-- .element: class="r-fit-text" -->
+
+        Notes:
+        once the basic pieces are in place, new features can be added based on the existing patterns
+      </script></section>
+
+      <section>
+        <img class="kss-page" data-src="images/screen-card-grid-front.png" width="1280" height="605" alt="front-end view of the Card Grid block using the Twig patterns" />
+
+        <aside class="notes">
+          adding more patterns to build additional custom blocks
+        </aside>
+      </section>
+
+
+
+      <section>
+        <img class="kss-page" data-src="images/screen-search-front.png" width="1280" height="605" alt="new Search bar added to the navigation using the Twig patterns" />
+
+        <aside class="notes">
+          adding more patterns to enhance design and functionality to the theme
+        </aside>
+      </section>
+
+
+
+      <partial src="thanks.html" conf="2021-wpcampus"></partial>
+    </div>
+
+    <partial src="footer.html" talk-url="ksslist" talk="KSSList" conf-url="wpcampus" conf="WPCampus"></partial>
+  </div>
+
+<partial src="reveal.html" sessionTime="2100"></partial>
+
+</body>
+</html>

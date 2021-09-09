@@ -60,6 +60,10 @@ img[src*='reedcodes'] {
   border: 0.25vw solid color.$raisin;
 }
 
+pre {
+  font-size: 0.5em;
+}
+
 blockquote {
   margin: 0;
   padding-inline-start: 2vw;
@@ -146,14 +150,23 @@ blockquote {
   }
 
   .backgrounds {
+    --bg-direction: right;
+    --bg-color: #{ color.$raisin };
+
     .left, .right, .top, .bottom {
+      background-image: linear-gradient(
+        to var(--bg-direction),
+        var(--bg-color),
+        transparent
+      );
+
       div { mix-blend-mode: multiply; }
     }
 
-    .left { background-image: linear-gradient( to right, color.$raisin, transparent); }
-    .right { background-image: linear-gradient( to left, color.$raisin, transparent); }
-    .top { background-image: linear-gradient( to bottom, color.$raisin, transparent); }
-    .bottom { background-image: linear-gradient( to top, color.$raisin, transparent); }
+    .left { --bg-direction: right; }
+    .right { --bg-direction: left; }
+    .top { --bg-direction: bottom; }
+    .bottom { --bg-direction: top; }
   }
 
   .controls {
@@ -177,6 +190,17 @@ blockquote {
 
   @include mq.media('>md') {
     grid-template-columns: 2fr 5fr;
+
+    &.equal {
+      --column-number: 2;
+
+      grid-template-columns: repeat( var(--column-number), 1fr );
+      align-items: start;
+
+      > div {
+        width: min(100%, 100%);
+      }
+    }
   }
 }
 
@@ -247,6 +271,20 @@ blockquote {
       font-size: 1.5rem;
     }
   }
+
+  .role {
+    &-position .student,
+    &-student .position {
+      display: none;
+    }
+  }
+}
+
+
+
+// End: thank you.
+[data-id*="thanks"] {
+  margin-block: 0;
 }
 
 
@@ -288,4 +326,22 @@ footer {
     display: inline-block;
     font-weight: 300;
   }
+}
+
+
+
+// Code highlighting.
+.code-wrapper {
+  display: grid;
+
+  .hljs {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+}
+
+.reveal .hljs:not(:first-child).fragment {
+  position: relative;
+  top: auto;
+  left: auto;
 }
