@@ -131,7 +131,7 @@
 
 
 
-      <section data-auto-animate>
+      <section>
         <h2 data-id="kssconfigjson-title"><code>./kss-config.json</code></h2>
 <pre data-id="kssconfigjson-code"><code data-trim data-line-numbers>{
   "title": "Sample KSS",
@@ -151,7 +151,36 @@
 
 
 
-      <section data-auto-animate>
+      <section>
+        <h2>Create the Pattern Library Directories</h2>
+          <pre><code>./src/base/_index.scss
+./src/color/_index.scss
+./src/text/_index.scss
+./src/link/_index.scss
+./src/card/_index.scss
+./src/layout/_index.scss
+</code></pre>
+      </section>
+
+
+
+      <section>
+        <h2><code>./src/styles.scss</code></h2>
+          <pre><code class="language-css" data-trim data-line-numbers>@use 'color';
+@use 'base';
+@use 'text';
+@use 'link';
+@use 'card';
+@use 'layout';</code></pre>
+
+        <aside class="notes">
+          include the Sass partials even though there's nothing yet, so we have something to build from later
+        </aside>
+      </section>
+
+
+
+      <section>
         <h2 data-id="kssconfigjson-title"><code>./kss-config.json</code></h2>
 <pre data-id="kssconfigjson-code"><code data-trim data-line-numbers>{
   "title": "Sample KSS",
@@ -169,36 +198,6 @@
 }</code></pre>
         <aside class="notes">
           because we'll reference Twig from pattern library, custom blocks, custom themes, let's give our patterns a namespace
-        </aside>
-      </section>
-
-
-
-      <section>
-        <h2>Create the Pattern Library Directories</h2>
-
-        <div class="columns equal">
-          <div>
-<pre><code>./src/base/_index.scss
-./src/link/_index.scss
-./src/card/_index.scss
-./src/color/_index.scss
-./src/layout/_index.scss
-./src/text/_index.scss</code></pre>
-          </div>
-
-          <div class="fragment">
-<pre><code class="language-css" data-trim data-line-numbers>@use 'color';
-@use 'base';
-@use 'text';
-@use 'link';
-@use 'card';
-@use 'layout';</code></pre>
-          </div>
-        </div>
-
-        <aside class="notes">
-          Add `./src/styles.scss` now so we have something to build from later.
         </aside>
       </section>
 
@@ -376,7 +375,7 @@
         <h2><code>./src/text/paragraph.twig</code></h2>
         <pre><code data-trim data-line-numbers><p class="text-paragraph">{{paragraph_text}}</p></code></pre>
 
-        <h2><code>./src/text/eg-heading.twig</code></h2>
+        <h2><code>./src/text/eg-paragraph.twig</code></h2>
         <pre><code data-trim data-line-numbers>{% include "@text/paragraph.twig" with {
   paragraph_text: "Curabitur vestibulum enim rutrum nostra dui eros sed sed vestibulum ..."
 } %}</code></pre>
