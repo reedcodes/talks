@@ -195,6 +195,11 @@ blockquote {
       --column-number: 2;
 
       grid-template-columns: repeat( var(--column-number), 1fr );
+      align-items: start;
+
+      > div {
+        width: min(100%, 100%);
+      }
     }
   }
 }
