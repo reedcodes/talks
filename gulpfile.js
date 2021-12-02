@@ -2,7 +2,7 @@
 
 // Define libraries.
 const gulp   = require( 'gulp' ),
-      sass   = require( 'gulp-dart-sass' ),
+      sass   = require( 'gulp-sass' )( require( 'sass' ) ),
       html   = require( 'gulp-html-partial' );
 
 
