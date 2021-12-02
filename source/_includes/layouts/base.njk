@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+{%- include "partials/head.html" -%}
+
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    {%- include "partials/intro.html" -%}
+
+    {%- block slides -%}
+    {%- endblock slides -%}
+
+    {%- include "partials/thanks.html" -%}
+
+  </div>
+
+  {%- include "partials/footer.html" -%}
+</div>
+
+{%- include "partials/reveal.html" -%}
+
+</body>
+</html>

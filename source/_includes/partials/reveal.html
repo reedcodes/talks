@@ -1,7 +1,7 @@
-<script src="/dist/js/reveal.js"></script>
-<script src="/dist/js/highlight/highlight.js"></script>
-<script src="/dist/js/markdown/markdown.js"></script>
-<script src="/dist/js/notes/notes.js"></script>
+<script src="{{ site.assets.js }}reveal.js"></script>
+<script src="{{ site.assets.js }}highlight/highlight.js"></script>
+<script src="{{ site.assets.js }}markdown/markdown.js"></script>
+<script src="{{ site.assets.js }}notes/notes.js"></script>
 <script>
   Reveal.initialize(
     {
@@ -25,7 +25,7 @@
       hashOneBasedIndex: true,
       fragmentInURL: false,
       mouseWheel: true,
-      totalTime: @@sessionTime
+      totalTime: {{ session_time | d(2100) }}
     }
   );
 </script>
