@@ -32,6 +32,8 @@
   },
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:gulp": "gulp",
+    "build:11ty": "npx eleventy",
+    "build": "npm-run-all build:gulp build:11ty"
   }
 }

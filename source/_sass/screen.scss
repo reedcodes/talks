@@ -1,9 +1,6 @@
-@import './node_modules/include-media/dist/include-media';
-
-@import './node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
-@import './node_modules/@fortawesome/fontawesome-free/scss/solid';
-
-$fa-font-path: '../webfonts' !default;
+$fa-font-path: '/dist/webfonts' !default;
+@import 'fontawesome';
+@import 'solid';
 
 
 

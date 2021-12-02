@@ -1,11 +1,11 @@
 // Font Awesome.
-$fa-font-path: '../webfonts';
-@use './node_modules/@fortawesome/fontawesome-free/scss/fontawesome' with ( $fa-font-path: $fa-font-path );
-@use './node_modules/@fortawesome/fontawesome-free/scss/brands' with ( $fa-font-path: $fa-font-path );
-@use './node_modules/@fortawesome/fontawesome-free/scss/solid' with ( $fa-font-path: $fa-font-path );
-@use './node_modules/@fortawesome/fontawesome-free/scss/regular' with ( $fa-font-path: $fa-font-path );
+$fa-font-path: '/dist/webfonts';
+@use 'fontawesome' with ( $fa-font-path: $fa-font-path );
+@use 'brands' with ( $fa-font-path: $fa-font-path );
+@use 'solid' with ( $fa-font-path: $fa-font-path );
+@use 'regular' with ( $fa-font-path: $fa-font-path );
 
-@use './node_modules/reveal.js/css/reveal.scss';
+@use 'reveal';
 
 @use 'color';
 @use 'mixins' as mix;
