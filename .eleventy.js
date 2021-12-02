@@ -7,7 +7,7 @@ module.exports = function( eleventyConfig ) {
 
     // reveal.js slideshow functionality.
     "./node_modules/reveal.js/dist/reveal.js*": "dist/js/",
-    "./node_modules/reveal.js/plugin/**/*": "dist/js/plugin/",
+    "./node_modules/reveal.js/plugin/**": "dist/js/plugin/",
 
     // Local site assets.
     "./source/.htaccess": "",
