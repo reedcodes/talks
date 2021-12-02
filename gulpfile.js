@@ -8,23 +8,23 @@ const gulp   = require( 'gulp' ),
 
 
 // Define HTML source and distribution directories.
-const htmlSrc      = './src/html/**/*.html';
+const htmlSrc      = './source/html/**/*.html';
 const htmlAssetSrc = [
-  './src/html/.htaccess',
-  './src/html/**/*.md',
-  './src/html/**/*.png',
-  './src/html/**/*.jpg',
-  './src/html/**/*.gif',
-  './src/html/**/*.pdf',
-  './src/html/**/*.mp4'
+  './source/html/.htaccess',
+  './source/html/**/*.md',
+  './source/html/**/*.png',
+  './source/html/**/*.jpg',
+  './source/html/**/*.gif',
+  './source/html/**/*.pdf',
+  './source/html/**/*.mp4'
 ];
-const htmlDist     = './';
+const htmlDist     = './site';
 
 // Task to compile HTML files.
 gulp.task( 'html', function () {
   const htmlBuild = gulp.src( htmlSrc )
     .pipe( html( {
-      basePath: './src/partials/',
+      basePath: './source/partials/',
       tagName: 'partial',
       variablePrefix: '@@'
     } ) )
@@ -40,13 +40,13 @@ gulp.task( 'html', function () {
 
 // Define other static assets source and distribution directories.
 const faSrc  = './node_modules/@fortawesome/fontawesome-free/webfonts/**/*';
-const faDist = './dist/webfonts';
+const faDist = './site/dist/webfonts';
 
-const assetBase = './src';
+const assetBase = './source';
 const assetSrc  = [
-  './src/images/**/*'
+  './source/images/**/*'
 ];
-const assetDist = './dist';
+const assetDist = './site/dist';
 
 // Task to copy assets.
 gulp.task( 'assets', function() {
@@ -63,8 +63,8 @@ gulp.task( 'assets', function() {
 
 
 // Define CSS source and distribution directories.
-const cssSrc  = './src/sass/**/*.scss';
-const cssDist = './dist/css';
+const cssSrc  = './source/sass/**/*.scss';
+const cssDist = './site/dist/css';
 
 // Task to compile CSS files.
 gulp.task( 'sass', function() {
@@ -81,7 +81,7 @@ gulp.task( 'sass', function() {
 const revealJsSrc      = './node_modules/reveal.js/dist/reveal.js*';
 const revealJsPlugSrc  = './node_modules/reveal.js/plugin/**/*';
 const revealJsPlugBase = './node_modules/reveal.js/plugin';
-const revealJsDist     = './dist/js';
+const revealJsDist     = './site/dist/js';
 
 // Task to compile reveal.js files.
 gulp.task( 'reveal', function() {
