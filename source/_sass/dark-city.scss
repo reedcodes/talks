@@ -1,11 +1,13 @@
 @use 'color';
 @use 'mixins' as mix;
 
-$bg: color.$raisin;
-$bg-img: url('/2021-pcaaca/images/bg-spirals.png');
-$color: color.$foam;
-$link: color.$beau-blue;
-$controls: color.$beau-blue;
+@use 'talks-reveal' with (
+  $bg: color.$raisin,
+  $bg-img: url('/2021-pcaaca/images/bg-spirals.png'),
+  $color: color.$foam,
+  $link: color.$beau-blue,
+  $controls: color.$beau-blue
+);
 
 
 
