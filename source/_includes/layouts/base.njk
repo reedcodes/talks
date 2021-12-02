@@ -1,26 +1,26 @@
 <!doctype html>
 <html>
 
-{%- include "partials/head.html" -%}
+{%- include "partials/head.njk" -%}
 
 <body>
 
 <div class="reveal">
   <div class="slides">
 
-    {%- include "partials/intro.html" -%}
+    {%- include "partials/intro.njk" -%}
 
     {%- block slides -%}
     {%- endblock slides -%}
 
-    {%- include "partials/thanks.html" -%}
+    {%- include "partials/thanks.njk" -%}
 
   </div>
 
-  {%- include "partials/footer.html" -%}
+  {%- include "partials/footer.njk" -%}
 </div>
 
-{%- include "partials/reveal.html" -%}
+{%- include "partials/reveal.njk" -%}
 
 </body>
 </html>
