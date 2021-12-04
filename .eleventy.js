@@ -13,10 +13,11 @@ module.exports = function( eleventyConfig ) {
     "./source/.htaccess": "",
     "./source/_images/": "dist/images/",
 
-    // Talk-specific assets, slideshows begin with the year 20xx.
-    "./source/20*/**/*.pdf": "",
-    "./source/20*/**/images/**/*": "",
-    "./source/20*/**/video/**/*": ""
+    // Talk-specific assets: images, video, PDFs, and markdown includes.
+    "./source/**/*.pdf": "",
+    "./source/**/images/**/*": "",
+    "./source/**/video/**/*": "",
+    "./source/**/markdown/**/*": ""
   } );
 
   // 11ty config options.
