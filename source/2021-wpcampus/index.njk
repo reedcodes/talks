@@ -10,3 +10,17 @@ hashtag:
   conference: WPCampus
 session_time: 35
 ---
+
+<section data-auto-animate>
+  <h2><code>./src/text/heading.twig</code></h2>
+  <pre><code data-trim data-line-numbers>{%- raw -%}{%- set heading_level = heading_level | default(2) -%}
+
+<h{{heading_level}} class="text-heading {{modifier_class}}">{{heading_text}}</h{{heading_level}}>{%- raw -%}</code></pre>
+
+  <aside class="notes">
+    <ul>
+      <li>create the Twig to use for the link pattern</li>
+      <li>add any variables for use, here: the heading level and the heading text</li>
+    </ul>
+  </aside>
+</section>
