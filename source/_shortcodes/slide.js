@@ -4,5 +4,9 @@ module.exports = function( content, ...data ) {
     data_args += " data-" + data[i];
   }
 
-  return `<section ${ data_args }><script type="text/template">${ content }</script></section>`;
+  const hasMarkdown = data.includes( "markdown" );
+  const script = hasMarkdown ? `<script type="text/template">` : "";
+  const endscript = hasMarkdown ? `</script>` : "";
+
+  return `<section ${ data_args }>${ script }${ content }${ endscript }</section>`;
 };

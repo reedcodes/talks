@@ -20,6 +20,7 @@ module.exports = function( eleventyConfig ) {
     "./source/**/markdown/**/*": ""
   } );
 
+  eleventyConfig.addPairedShortcode( "codeblock", require("./source/_shortcodes/code.js") );
   eleventyConfig.addPairedShortcode( "slide", require("./source/_shortcodes/slide.js") );
 
   // 11ty config options.
