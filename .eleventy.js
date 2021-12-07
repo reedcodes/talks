@@ -20,6 +20,8 @@ module.exports = function( eleventyConfig ) {
     "./source/**/markdown/**/*": ""
   } );
 
+  eleventyConfig.addPairedShortcode( "slide", require("./source/_shortcodes/slide.js") );
+
   // 11ty config options.
   return {
     markdownTemplateEngine: "njk",
