@@ -1,3 +1,5 @@
 module.exports = function( content, lines ) {
-  return `<pre><code data-trim data-line-numbers=${ lines }>${ content }</code></pre>`;
+  const linesContent = lines ? `="${ lines }"` : '';
+
+  return `<pre><code data-trim data-line-numbers${ linesContent }>${ content }</code></pre>`;
 };
