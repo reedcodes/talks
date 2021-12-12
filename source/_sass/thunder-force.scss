@@ -1,0 +1,14 @@
+@use 'color';
+
+@use 'talks-reveal' with (
+  $bg: color.$raisin,
+  $bg-img: url('/2022-pcaaca/images/netflixfilm-bingo.png'),
+  $color: color.$foam,
+  $link: color.$beau-blue,
+  $controls: color.$beau-blue
+);
+
+.reveal {
+  background-position: right center;
+  background-size: contain;
+}
