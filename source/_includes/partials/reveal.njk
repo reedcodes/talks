@@ -1,0 +1,31 @@
+<script src="{{ site.assets.js }}reveal.js"></script>
+<script src="{{ site.assets.js }}plugin/highlight.js"></script>
+<script src="{{ site.assets.js }}plugin/markdown.js"></script>
+<script src="{{ site.assets.js }}plugin/notes.js"></script>
+<script>
+  Reveal.initialize(
+    {
+      // Plugins.
+      plugins: [
+        RevealHighlight,
+        RevealMarkdown,
+        RevealNotes
+      ],
+
+      // Config options.
+      disableLayout: true,
+      transition: 'fade',
+      transitionSpeed: 'slow',
+      autoAnimateDuration: 0.6,
+      controlsLayout: 'edges',
+      controlsBackArrows: 'visible',
+      progress: false,
+      showSlideNumber: 'speaker',
+      hash: true,
+      hashOneBasedIndex: true,
+      fragmentInURL: false,
+      mouseWheel: true,
+      totalTime: {{ session_time * 60 | d(1200) }}
+    }
+  );
+</script>

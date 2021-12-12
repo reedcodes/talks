@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+<head>
+  {%- include "partials/head.njk" -%}
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    {%- include "partials/intro.njk" -%}
+
+    <section>
+      <header class="title">
+        {%- if title -%}<h1>{{ title }}</h1>{%- endif -%}
+        {%- if subtitle -%}<p>{{ subtitle }}</p>{%- endif -%}
+      </header>
+    </section>
+
+    {%- block slides -%}
+      {{ content | safe }}
+    {%- endblock slides -%}
+
+    {%- include "partials/thanks.njk" -%}
+
+  </div>
+
+  {%- include "partials/footer.njk" -%}
+</div>
+
+{%- include "partials/reveal.njk" -%}
+
+</body>
+</html>
