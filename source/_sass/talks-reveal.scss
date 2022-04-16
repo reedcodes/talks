@@ -51,6 +51,13 @@ video {
   margin-inline: auto;
 }
 
+video,
+iframe {
+  aspect-ratio: 21/9;
+  width: min( 100%, 100vw );
+  border: 0;
+}
+
 img[src*='reedcodes'] {
   width: auto;
   max-width: 350px;
@@ -188,8 +195,19 @@ blockquote {
   justify-items: start;
   align-items: center;
 
+  .center {
+    place-self: center;
+    text-align: center;
+  }
+
   @include mq.media('>md') {
     grid-template-columns: 2fr 5fr;
+
+    &.compare {
+      grid-template-columns: 1fr auto 1fr;
+      place-items: center;
+      text-align: center;
+    }
 
     &.equal {
       --column-number: 2;
