@@ -1,5 +1,7 @@
 {%- slide "markdown" %}
-"What is kss-node and what can I learn from this session?"
+"What is a pattern library? a style guide?"
+
+"What can I learn from this session?"
 
 {% notes %}
 go over:
@@ -17,9 +19,11 @@ will not go over:
 
 
 {%- slide "markdown" -%}
-Style guide? <!-- .element: class="r-fit-text" -->
+**Pattern library:**
+the code that creates the components
 
-Pattern library? <!-- .element: class="r-fit-text" -->
+**Style guide:**
+the document that lists all the components
 
 {% notes %}
 Old WP themes: Too many components! What is used where!? Code goto bloated, conflicting styles, etc. Further troubles with "static" gutenberg blocks
