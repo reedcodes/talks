@@ -1,7 +1,7 @@
-<script src="{{ site.assets.js }}reveal.js"></script>
-<script src="{{ site.assets.js }}plugin/highlight.js"></script>
-<script src="{{ site.assets.js }}plugin/markdown.js"></script>
-<script src="{{ site.assets.js }}plugin/notes.js"></script>
+<script src="{{- "/dist/js/reveal.js" | url -}}"></script>
+<script src="{{- "/dist/js/plugin/highlight/highlight.js" | url -}}"></script>
+<script src="{{- "/dist/js/plugin/markdown/markdown.js" | url -}}"></script>
+<script src="{{- "/dist/js/plugin/notes/notes.js" | url -}}"></script>
 <script>
   Reveal.initialize(
     {
@@ -11,9 +11,7 @@
         RevealMarkdown,
         RevealNotes
       ],
-
       // Config options.
-      disableLayout: true,
       transition: 'fade',
       transitionSpeed: 'slow',
       autoAnimateDuration: 0.6,
@@ -25,7 +23,7 @@
       hashOneBasedIndex: true,
       fragmentInURL: false,
       mouseWheel: true,
-      totalTime: {{ session_time * 60 | d(1200) }}
+      totalTime: (30 * 60)
     }
   );
 </script>

@@ -1,0 +1,13 @@
+{%-
+  metagen
+    name = site.name,
+    desc = site.description,
+    site_name = site.website,
+    title = title + ": " + site.website,
+    url = site.url + page.url,
+    generator = "eleventy",
+    comments = false,
+    css = ["/dist/css/" + css_file + ".css"]
+-%}
+
+{% favicons "./source/_images/favicon.png" %}

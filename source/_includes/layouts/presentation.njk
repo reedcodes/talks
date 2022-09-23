@@ -1,0 +1,33 @@
+---
+css_file: presentation
+---
+
+<!doctype html>
+<html>
+<head>
+  {%- include "global/head.njk" -%}
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <section>
+      <header class="title">
+        {%- if title -%}<h1>{{ title }}</h1>{%- endif -%}
+        {%- if subtitle -%}<p>{{ subtitle }}</p>{%- endif -%}
+      </header>
+    </section>
+
+    {%- block slides -%}
+      {{ content | safe }}
+    {%- endblock slides -%}
+
+  </div>
+
+</div>
+
+{%- include "partials/reveal.njk" -%}
+
+</body>
+</html>

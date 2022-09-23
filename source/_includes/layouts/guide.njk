@@ -1,0 +1,26 @@
+---
+css_file: guide
+---
+
+<!doctype html>
+<html>
+<head>
+  {%- include "global/head.njk" -%}
+</head>
+
+<body class="guide">
+
+  {%- block main_content -%}
+
+    <header class="container">
+      <h1>{{ title if title else "Style Guide" }}</h1>
+    </header>
+
+    <section class="container">
+      {{ content | safe }}
+    </section>
+
+  {%- endblock main_content -%}
+
+</body>
+</html>
