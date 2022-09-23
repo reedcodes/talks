@@ -1,12 +1,15 @@
 {%- slide "markdown" -%}
 
-`./builder`
-
+**for the style guide**<br>
+`./builder`<br>
 `./styleguide`
 
-`./src`
-
+**for the pattern library**<br>
+`./src`<br>
 `./dist`
+
+**for any configuration**<br>
+`./config`
 
 
 {% notes %}
@@ -15,5 +18,6 @@
 - styleguide: the generated output
 - src: the source Sass and Twig files
 - dist: the compiled stylesheet assets
+- config: not required, but helpful for kss config and any other config files that may be needed for the project
 {% endnotes %}
 {%- endslide -%}

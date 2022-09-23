@@ -19,10 +19,10 @@ will not go over:
 
 
 {%- slide "markdown" -%}
-**Pattern library:**
+**Pattern library:**<br>
 the code that creates the components
 
-**Style guide:**
+**Style guide:**<br>
 the document that lists all the components
 
 {% notes %}
