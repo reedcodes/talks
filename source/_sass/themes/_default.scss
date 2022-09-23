@@ -47,9 +47,11 @@ $selectionColor: $color-tertiary;
 // Further overrides of other sections of the layout.
 .reveal {
   .slides {
+    text-align: unset;
+
     section {
-      // Add more inline buffer to a slide, about the size of the controls.
-        padding-inline: calc( $controlArrowSize / 2 );
+      // Add inline buffer to a slide, about a third the size of the controls.
+      padding-inline: calc( $controlArrowSize / 3 );
     }
   }
 
