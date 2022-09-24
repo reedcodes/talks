@@ -3,7 +3,7 @@
   src:
     local( 'Public Sans' ),
     local( 'Public-Sans' ),
-    url('/dist/webfonts/PublicSans.ttf') format('truetype');
+    url('/assets/webfonts/PublicSans.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
@@ -13,7 +13,7 @@
   src:
     local( 'Public Sans' ),
     local( 'Public-Sans' ),
-    url('/dist/webfonts/PublicSans-Italic.ttf') format('truetype');
+    url('/assets/webfonts/PublicSans-Italic.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }

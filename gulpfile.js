@@ -10,7 +10,7 @@ const cleanCSS = require( 'gulp-clean-css' ),
 // your own directory structure. Keep in mind that gh-pages requires its site
 // content to be stored in the `/site/` directory.
 const cssSource = './source/_sass/**/*.scss';
-const cssBuild = './site/dist/css';
+const cssBuild = './site/assets/css';
 
 // Define CSS source paths from other locations, e.g. node modules. They can
 // then be `@use`d in Sass files without having to specify the entire path.

@@ -20,18 +20,18 @@ module.exports = function( eleventyConfig ) {
    * More info: https://www.11ty.dev/docs/copy/
    */
   eleventyConfig.addPassthroughCopy( {
-    // Copy the reveal.js slideshow functionality to the /dist/ build folder.
+    // Copy the reveal.js slideshow functionality to the /assets/ build folder.
     // Also copy over any included plugins.
-    "./node_modules/reveal.js/dist/reveal.js*": "dist/js/",
-    "./node_modules/reveal.js/plugin/": "dist/js/plugin/",
+    "./node_modules/reveal.js/dist/reveal.js*": "assets/js/",
+    "./node_modules/reveal.js/plugin/": "assets/js/plugin/",
 
     // Copy over local site assets. This is usually images used globally across
     // the entire site, e.g. logos or profile photos.
-    "./source/_images/": "dist/images/",
+    "./source/_images/": "assets/images/",
 
     // Copy over any webfonts used in slides. Public Sans is the default
     // typeface. https://github.com/uswds/public-sans
-    "./source/_webfonts/": "dist/webfonts/"
+    "./source/_webfonts/": "assets/webfonts/"
   } );
 
   // Add the 11ty navigation plugin.
