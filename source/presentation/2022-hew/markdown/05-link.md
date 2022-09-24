@@ -28,7 +28,7 @@ Have all the same information as the other patterns, but here addition of "modif
 
 
 {%- slide -%}
-<h2><code>./src/link/_index.scss</code></h2>
+<h2><code>./src/link/link.twig</code></h2>
 
 {%- codeblock "twig" -%}{% raw %}
 <a class="text-link {{modifier_class}}" href="{{link_url}}">{{link_text}}</a>
