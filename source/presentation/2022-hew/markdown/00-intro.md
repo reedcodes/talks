@@ -1,7 +1,7 @@
 {%- slide "markdown" %}
-"What is a pattern library? a style guide?"
+"What is a pattern library? a style guide?" <!-- .element: class="r-fit-text" -->
 
-"What can I learn from this session?"
+"What can I learn from this session?" <!-- .element: class="r-fit-text" -->
 
 {% notes %}
 go over:

@@ -12,29 +12,24 @@ css_file: presentation
 <div class="reveal">
   <div class="slides">
 
-    <section>
+    <section class="presentation-bookend">
       <header class="title">
         {%- if title -%}<h1>{{ title }}</h1>{%- endif -%}
         {%- if subtitle -%}<p>{{ subtitle }}</p>{%- endif -%}
       </header>
 
-      <div class="presenter sidebar">
-        <img class="presenter-profile profile sidebar-aside" src="{{"/dist/images/profile.jpg" | url}}" alt="">
-
-        <div class="presenter-text sidebar-main">
-          <p class="presenter-name">{{site.name}}</p>
-          <p class="presenter-site"><a href="{{site.url | url}}">{{site.url}}</a></p>
-          {%- if site.role -%}
-            <p class="presenter-role">{{ site.role }}
-              {%- if site.organization -%}<br>{{ site.organization }}{%- endif -%}
-            </p>
-          {%- endif -%}
-        </div>
+      {%- include "partials/presenter.njk" -%}
     </section>
 
     {%- block slides -%}
       {{ content | safe }}
     {%- endblock slides -%}
+
+    <section class="presentation-bookend">
+      <p class="r-fit-text">Thank you!</p>
+
+      {%- include "partials/presenter.njk" -%}
+    </section>
 
   </div>
 

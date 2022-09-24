@@ -61,7 +61,11 @@ $selectionColor: $color-tertiary;
     width: auto;
     max-height: 80vh;
     margin-inline: auto;
-}
+
+    &.profile {
+      width: 150px;
+    }
+  }
 
   pre {
     --r-block-margin: 0;
@@ -71,27 +75,27 @@ $selectionColor: $color-tertiary;
       max-height: 65vh;
     }
   }
-}
 
-// Additional theme styles.
-.title {
-  --r-heading-color: var(--color-tertiary);
-  
-  border-bottom: 5px solid var(--color-secondary);
-  text-align: center;
-}
-
-.presenter {
-  width: fit-content;
-  margin-inline: auto;
-
-  p {
-    --r-block-margin: 0;
-    width: max-content;
+  // Additional theme styles.
+  .title {
+    --r-heading-color: var(--color-tertiary);
+    
+    border-bottom: 5px solid var(--color-secondary);
+    text-align: center;
   }
-  
-  &-site,
-  &-role {
-    font-size: 0.5em;
+
+  .presenter {
+    width: fit-content;
+    margin-inline: auto;
+
+    p {
+      --r-block-margin: 0;
+      width: max-content;
+    }
+    
+    &-site,
+    &-role {
+      font-size: 0.5em;
+    }
   }
 }
