@@ -42,5 +42,6 @@
 {% image "screen-color.png", "grid display of the brand colors in use for the example style guide" %}
 
 {%- notes -%}
+when the styleguide is generated, the comments from the CSS are used to create the pages. Displayed: name of pattern, description. Numbering based on weight and heirarchy. Loops through colors to output on page with information from the "colors" part of the CSS
 {%- endnotes -%}
 {%- endslide -%}
