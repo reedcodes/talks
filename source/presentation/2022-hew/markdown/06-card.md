@@ -85,3 +85,14 @@ Let's put it all together! We have enough patterns and styles to create a new pa
 </ul>
 {%- endnotes -%}
 {%- endslide -%}
+
+
+
+{%- slide "markdown" -%}
+{% image "screen-card.png", "style guide page for the Card section, illustrating the description, example pattern, and code" %}
+
+{%- notes -%}
+kss knows where to find the attribute values from the json
+this displays the pattern of patterns
+{%- endnotes -%}
+{%- endslide -%}

@@ -61,7 +61,12 @@ $selectionColor: $color-tertiary;
     // Change this to the full width, since there is padding applied to
     // the slide.
     max-width: 100%;
-  }
+
+    // Let the image fit inside the slide.
+    width: auto;
+    max-height: 80vh;
+    margin-inline: auto;
+}
 
   pre {
     --r-block-margin: 0;
