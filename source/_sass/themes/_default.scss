@@ -48,11 +48,6 @@ $selectionColor: $color-tertiary;
 .reveal {
   .slides {
     text-align: unset;
-
-    section {
-      // Add inline buffer to a slide, about a third the size of the controls.
-      padding-inline: calc( $controlArrowSize / 3 );
-    }
   }
 
   img,
