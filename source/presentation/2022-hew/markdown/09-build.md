@@ -9,3 +9,12 @@
 show examples of the pattern library, and sites in WP with the theme using the pattern library
 {%- endnotes -%}
 {%- endslide -%}
+
+{%- slide "markdown" -%}
+## The repo
+[https://github.com/reedcodes/sample-kss-twig](https://github.com/reedcodes/sample-kss-twig)
+
+## The demo
+[https://samplekss.reedcodes.com/styleguide/](https://samplekss.reedcodes.com/styleguide/)
+
+{%- endslide -%}

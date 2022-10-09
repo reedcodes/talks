@@ -51,7 +51,7 @@ handlebars, nunkucks, and twig are included builders -- using twig because compa
 `./src/layout/_index.scss`
 
 {% notes %}
-we use Sass to organize and compile the css, but _any_ style of CSS works, e.g. Less, vanilla CSS. only need kss to find the styleguide comments, and pattern library to find the twig files. will use to create namespaces
+we use Sass to organize and compile the css, but _any_ style of CSS works, e.g. frameworks like Tailwind, preprocessors like Less, vanilla CSS. As long as ability for comments, only need kss to find the styleguide comments, and pattern library to find the twig files. will use to create namespaces
 {% endnotes %}
 {%- endslide -%}
 
@@ -80,7 +80,7 @@ we use Sass to organize and compile the css, but _any_ style of CSS works, e.g. 
 
 {% notes "html" %}
 1. source, destination, builder: relative to the config file<br>
-2. css relative to the generated pages in styleguide
+2. css relative to the generated pages in styleguide<br>
 3. because we'll reference Twig from pattern library, custom blocks, custom themes, let's give our patterns a namespace
 {% endnotes %}
 {%- endslide -%}

@@ -1,7 +1,7 @@
 {%- slide "markdown" %}
-"What is a pattern library? a style guide?" <!-- .element: class="r-fit-text" -->
-
 "What can I learn from this session?" <!-- .element: class="r-fit-text" -->
+
+"What is a pattern library? a style guide?" <!-- .element: class="r-fit-text" -->
 
 {% notes %}
 go over:
@@ -19,11 +19,11 @@ will not go over:
 
 
 {%- slide "markdown" -%}
-**Pattern library:**<br>
-the code that creates the components
-
 **Style guide:**<br>
 the document that lists all the components
+
+**Pattern library:**<br>
+the code that creates the components
 
 {% notes %}
 Old WP themes: Too many components! What is used where!? Code goto bloated, conflicting styles, etc. Further troubles with "static" gutenberg blocks
@@ -34,5 +34,7 @@ style guide: "source of truth"
 
 pattern library: a more sustainable way of coding that truth
 - change made to one component only made in one place for all instances
-{% endnotes %}
+
+Other types of UI component tools: Pattern Lab, Storybook
+, Fractal. Explain why we choose KSS{% endnotes %}
 {%- endslide -%}

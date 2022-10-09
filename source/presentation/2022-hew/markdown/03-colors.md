@@ -1,3 +1,13 @@
+{%- slide "markdown" -%}
+{% image "screen-color.png", "grid display of the brand colors in use for the example style guide" %}
+
+{%- notes -%}
+when the styleguide is generated, the comments from the CSS are used to create the pages. Displayed: name of pattern, description. Numbering based on weight and heirarchy. Loops through colors to output on page with information from the "colors" part of the CSS
+{%- endnotes -%}
+{%- endslide -%}
+
+
+
 {%- slide -%}
 <h2><code>./src/color/_index.scss</code></h2>
 
@@ -34,14 +44,4 @@
   <li>After comments: regular Sass or CSS declarations</li>
 </ul>
 {% endnotes %}
-{%- endslide -%}
-
-
-
-{%- slide "markdown" -%}
-{% image "screen-color.png", "grid display of the brand colors in use for the example style guide" %}
-
-{%- notes -%}
-when the styleguide is generated, the comments from the CSS are used to create the pages. Displayed: name of pattern, description. Numbering based on weight and heirarchy. Loops through colors to output on page with information from the "colors" part of the CSS
-{%- endnotes -%}
 {%- endslide -%}

@@ -1,3 +1,13 @@
+{%- slide "markdown" -%}
+{% image "screen-text.png", "style guide page for the Text.Heading section, illustrating the description, example pattern, and code" %}
+
+{%- notes -%}
+Some sections with parent and children. Text, include stuff like headings and paragraphs. Text parent, heading child. Comments tell kss what goes where.
+{%- endnotes -%}
+{%- endslide -%}
+
+
+
 {%- slide -%}
 <h2><code>./src/text/_index.scss</code></h2>
 
@@ -113,15 +123,5 @@ Create the Twig files, with the patterns for Heading and Paragraph. Most basic, 
   <li>the style guide will know what to do with this example file, since we added it in the comments of the Sass</li>
   <li>here: passing in example values for the attributes</li>
 </ul>
-{%- endnotes -%}
-{%- endslide -%}
-
-
-
-{%- slide "markdown" -%}
-{% image "screen-text.png", "style guide page for the Text.Heading section, illustrating the description, example pattern, and code" %}
-
-{%- notes -%}
-when the styleguide is generated, the comments from the CSS are used to create the pages. Displayed: name of pattern, description. Numbering based on weight and heirarchy. Loops through colors to output on page with information from the "colors" part of the CSS
 {%- endnotes -%}
 {%- endslide -%}

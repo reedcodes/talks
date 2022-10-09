@@ -1,3 +1,13 @@
+{%- slide "markdown" -%}
+{% image "screen-link.png", "style guide page for the Link section, illustrating the description, example pattern, and code" %}
+
+{%- notes -%}
+Displayed are name of pattern, description, etc as before, with addition of the modifiers. without doing extra work to repeat those examples with passing in attributes over again many times
+{%- endnotes -%}
+{%- endslide -%}
+
+
+
 {%- slide -%}
 <h2><code>./src/link/_index.scss</code></h2>
 
@@ -31,19 +41,14 @@ Have all the same information as the other patterns, but here addition of "modif
 <h2><code>./src/link/link.twig</code></h2>
 
 {%- codeblock "twig" -%}{% raw %}
-<a class="text-link {{modifier_class}}" href="{{link_url}}">{{link_text}}</a>
+<a class="text-link {{modifier_class}}" href="{{link_url}}">
+
+    {{link_text}}
+
+</a>
 {% endraw %}{%- endcodeblock -%}
 
 {%- notes "html" -%}
 addition of `modifier_class` in the pattern for the link
-{%- endnotes -%}
-{%- endslide -%}
-
-
-{%- slide "markdown" -%}
-{% image "screen-link.png", "style guide page for the Link section, illustrating the description, example pattern, and code" %}
-
-{%- notes -%}
-Displayed are name of pattern, description, etc as before, with addition of the modifiers. without doing extra work to repeat those examples with passing in attributes over again many times
 {%- endnotes -%}
 {%- endslide -%}

@@ -1,3 +1,13 @@
+{%- slide "markdown" -%}
+{% image "screen-card.png", "style guide page for the Card section, illustrating the description, example pattern, and code" %}
+
+{%- notes -%}
+Let's put it all together! We have enough patterns and styles to create a new pattern! e.g. card, made using Heading, Paragraph, Link
+{%- endnotes -%}
+{%- endslide -%}
+
+
+
 {%- slide -%}
 <h2><code>./src/card/_index.scss</code></h2>
 
@@ -25,7 +35,7 @@
 {% endraw %}{%- endcodeblock -%}
 
 {%- notes "html" -%}
-Let's put it all together! We have enough patterns and styles to create a new pattern! Add CSS/Sass/Less, etc as we've been doing, the difference is coding the Card twig patterns. <b>Note the change in markup location!</b>
+Add CSS/Sass/Less, etc as we've been doing, the difference is coding the Card twig patterns. <b>Note the change in markup location!</b>
 {%- endnotes -%}
 {%- endslide -%}
 
@@ -81,18 +91,7 @@ Let's put it all together! We have enough patterns and styles to create a new pa
 <ul>
   <li>new! before we used example Twig files</li>
   <li>can also use json to pass values into the Twig</li>
-  <li>in the styleguide, if using json, the filename must match the Twig filename</li>
+  <li>in the styleguide, if using json, the filename must match the Twig filename, kss knows where to find the attribute values from the json (this displays the pattern of patterns)</li>
 </ul>
-{%- endnotes -%}
-{%- endslide -%}
-
-
-
-{%- slide "markdown" -%}
-{% image "screen-card.png", "style guide page for the Card section, illustrating the description, example pattern, and code" %}
-
-{%- notes -%}
-kss knows where to find the attribute values from the json
-this displays the pattern of patterns
 {%- endnotes -%}
 {%- endslide -%}
