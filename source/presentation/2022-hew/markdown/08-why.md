@@ -15,7 +15,19 @@ What are the benefits? <!-- .element: class="r-fit-text" -->
 
 
 {%- slide "markdown" -%}
-{% image "screen-grids.png", "screenshot of a page feature three Teaser Link items, followed by three Info Grid items. The styles are fairly similar, with Info Grid items also having a title and description. Both blocks have images with text links." %}
+{% image "screen-teaser.png", "screenshot of a page feature three Teaser Link items, that each include an image and a link call-to-action." %}
+
+{%- notes -%}
+- teaser links were an early pattern for a block
+- many months later, new block for Info items requested
+- adding the initial new pattern took ~20 minutes, then only some adjustments
+{%- endnotes -%}
+{%- endslide -%}
+
+
+
+{%- slide "markdown" -%}
+{% image "screen-info.png", "screenshot of a page feature three Info Grid items, that each include an image, a heading (title), description (paragraph), and a link call-to-action." %}
 
 {%- notes -%}
 - teaser links were an early pattern for a block
