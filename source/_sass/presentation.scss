@@ -1,0 +1,10 @@
+@use 'base';
+
+// Use a default reveal.js theme, from the available built-in themes.
+// @use 'theme/source/night';
+
+// Create a customized presentation theme.
+@use 'themes/default';
+
+// Add styles for code highlighting.
+@use 'highlight/monokai.css';

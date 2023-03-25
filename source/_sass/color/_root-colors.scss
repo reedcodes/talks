@@ -1,0 +1,12 @@
+@use 'sass:color';
+@use 'sass:map';
+@use 'sass:math';
+
+@use 'color-tokens' as *;
+
+:root {
+  // At the document root, define CSS custom properties to use later, one prop
+  // for _each_ color in the color palette. These colors are defined in the
+  // generated `_color-tokens` file.
+  @include color-tokens();
+}

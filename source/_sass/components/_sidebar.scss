@@ -1,0 +1,16 @@
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: min(2em, 2vw);
+  place-items: center;
+
+  &-aside {
+    flex-grow: 1;
+  }
+
+  &-main {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 50%;
+  }
+}

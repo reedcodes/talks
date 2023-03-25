@@ -1,10 +1,8 @@
 {
   "name": "Reed Piernock",
-  "url": "https://talks.reedcodes.com/",
-  "assets":{
-    "logo": "/dist/images/reedcodes.jpg",
-    "css": "/dist/css/",
-    "images": "/dist/images/",
-    "js": "/dist/js/"
-  }
+  "description": "a repository for lightning talks, presentations, and papers",
+  "website": "reedcodes",
+  "url": "https://reedcodes.com",
+  "role": "senior web front-end developer",
+  "organization": "Georgetown University"
 }

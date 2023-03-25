@@ -1,0 +1,13 @@
+{% set navigation = collections.all | eleventyNavigation() %}
+
+{%- if not navigation | length == 0 -%}
+  <ul class="site-navigation-list">
+    {%- for item in navigation %}
+      <li class="site-navigation-item">
+        <a class="site-navigation-link" href="{{- item.url | url -}}">
+          {{- item.title -}}
+        </a>
+      </li>
+    {%- endfor %}
+  </ul>
+{%- endif -%}

@@ -1,0 +1,108 @@
+@use 'fonts' as *;
+@use 'include-media' as *;
+@use 'sass:math';
+
+$spacer: 1em;
+
+// Base size ~18px, assuming 16px default browser size.
+// Set for smaller viewports, like phones and tablets.
+$base-size: 1.125rem;
+
+// Base size ~20px, assuming 16px default browser size.
+// Set for larger viewports, like laptops and desktop monitors.
+$base-size-lg: 1.5rem;
+
+// Typefaces available.
+$sans-serif: 'Public Sans', system-ui, sans-serif;
+
+:root {
+  --spacer: #{$spacer};
+
+  --font-size: #{$base-size};
+  --font-weight: 450;
+  --font-body: #{$sans-serif};
+  --font-heading: #{$sans-serif};
+
+  // Calculate a relative line height.
+  // Jesús Ricarte
+  // https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+  --line-height: calc(2.5px + 2.5ex + 2.5px);
+
+  @include media('>desktop') {
+    --font-size: #{$base-size-lg};
+  }
+}
+
+
+
+/*
+ * Main content text.
+ */
+
+:is(
+  p,
+  dl
+),
+:is(
+  ol:not([class]):not([role]),
+  ul:not([class]):not([role])
+) {
+  margin-bottom: var(--spacer);
+}
+
+:is(li, dt, dd) {
+  margin-bottom: calc( var(--spacer) / 2 );
+}
+
+/*
+ * Headings.
+ */
+
+:is(
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6
+) {
+  margin-bottom: 0.65em;
+  line-height: var(--line-height);
+  font-weight: var(--heading-font-weight, 750);
+  font-family: var(--font-heading);
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/*
+ * Headings.
+ * Setting fluid type scale.
+ */
+
+
+$type-scale-major-second: 1.125;
+$type-scale-minor-third: 1.2;
+
+// Heading levels.
+$headings: 5, 4, 3, 2, 1;
+
+$heading-size: $base-size;
+$heading-size-lg: $base-size-lg;
+
+// Set the css props in the root, to use elsewhere.
+:root {
+  @each $heading in $headings {
+    // Apply the heading size for this level based on ratio.
+    $heading-size: $heading-size * $type-scale-major-second;
+    $heading-size-lg: $heading-size-lg * $type-scale-minor-third;
+
+    --h#{$heading}-font-size: #{$heading-size};
+
+    @include media('>desktop') {
+      --h#{$heading}-font-size: #{$heading-size-lg};
+    }
+  }
+}
+
+// Actually use the css props for font sizes on elements and classes.
+@each $heading in $headings {
+  h#{$heading }, .h#{$heading } {
+    font-size: var(--h#{$heading}-font-size);
+  }
+}

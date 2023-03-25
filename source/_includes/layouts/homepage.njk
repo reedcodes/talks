@@ -1,0 +1,28 @@
+---
+css_file: styles
+---
+
+<!doctype html>
+<html>
+<head>
+  {%- include "global/head.njk" -%}
+</head>
+
+<body class="home">
+
+  {%- block main_content -%}
+
+    <header class="container">
+      <h1>{{ site.website }}</h1>
+    </header>
+
+    <section class="container">
+      {{ content | safe }}
+
+      {%- include "global/navigation.njk" -%}
+    </section>
+
+  {%- endblock main_content -%}
+
+</body>
+</html>

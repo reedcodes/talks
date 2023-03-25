@@ -1,0 +1,15 @@
+<div class="presenter sidebar">
+  {# Photo by Michael Dziedzic on Unsplash #}
+  {# https://unsplash.com/photos/Q9lhYo8umOM #}
+  <img class="presenter-profile profile sidebar-aside" src="{{"/assets/images/profile.jpg" | url}}" alt="">
+
+  <div class="presenter-text sidebar-main">
+    <p class="presenter-name">{{site.name}}</p>
+    <p class="presenter-site"><a href="{{site.url | url}}">{{site.url}}</a></p>
+    {%- if site.role -%}
+      <p class="presenter-role">{{ site.role }}
+        {%- if site.organization -%}<br>{{ site.organization }}{%- endif -%}
+      </p>
+    {%- endif -%}
+  </div>
+</div>

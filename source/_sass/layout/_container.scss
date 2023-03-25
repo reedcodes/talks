@@ -1,0 +1,7 @@
+.container {
+  width: min( 100%, var(--container-width, 1200px) );
+  margin-block: var(--container-margin-block, inherit);
+  margin-inline: var(--container-margin-inline, auto);
+  padding-block: var(--container-padding-block, inherit);
+  padding-inline: var(--container-padding-inline, min( 2rem, 4vw));
+}

@@ -1,0 +1,101 @@
+// Use the default settings from the overall theme.
+// For continuity, these can be updated on a per presentation basis later.
+@use '../color/color-tokens' as *;
+@use '../settings/type' as *;
+
+// Use the reveal.js styles. They are included here so the Sass variables set
+// in that file can be used later in this file.
+@use 'reveal' as *;
+
+// Include the required mixins and settings. These need `@import` for now,
+// due to the way it includes and uses Sass variables.
+@import 'theme/template/mixins';
+@import 'theme/template/settings';
+
+// Override theme settings from `theme/template/settings.scss`
+  // `--color-*` props are set in `color/root-colors`.
+  // `--h*-font-size` props are set in `settings/type`.
+
+$backgroundColor: $color-on-primary;
+
+$mainColor: $color-on-foreground;
+$mainFont: $sans-serif;
+$blockMargin: min(2rem, 4vh);
+
+$headingMargin: 0 0 $blockMargin 0;
+$headingColor: $mainColor;
+$headingFont: $sans-serif;
+$headingLineHeight: var(--line-height);
+
+$heading1Size: var(--h1-font-size);
+$heading2Size: var(--h2-font-size);
+$heading3Size: var(--h3-font-size);
+$heading4Size: var(--h4-font-size);
+
+$codeFont: monospace;
+
+$linkColor: $color-tertiary;
+$linkColorHover: $color-background;
+
+$selectionBackgroundColor: $color-on-tertiary;
+$selectionColor: $color-tertiary;
+
+// Include the required theme template. This needs `@import` for now, due to
+// the way it includes the `exposer` css props.
+@import 'theme/template/theme';
+
+// Further overrides of other sections of the layout.
+.reveal {
+  .slides {
+    text-align: unset;
+  }
+
+  img,
+  video,
+  iframe {
+    // Change this to the full width, since there is padding applied to
+    // the slide.
+    max-width: 100%;
+
+    // Let the image fit inside the slide.
+    width: auto;
+    max-height: 80vh;
+    margin-inline: auto;
+
+    &.profile {
+      width: 150px;
+    }
+  }
+
+  pre {
+    --r-block-margin: 0;
+    width: unset;
+
+    code {
+      max-height: 65vh;
+    }
+  }
+
+  // Additional theme styles.
+  .title {
+    --r-heading-color: var(--color-tertiary);
+    
+    border-bottom: 5px solid var(--color-secondary);
+    text-align: center;
+  }
+
+  .presenter {
+    width: fit-content;
+    margin-inline: auto;
+
+    p {
+      --r-block-margin: 0;
+      width: max-content;
+    }
+    
+    &-site,
+    &-role {
+      font-size: 0.5em;
+    }
+  }
+}

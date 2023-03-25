@@ -1,0 +1,29 @@
+@use 'color-tokens' as *;
+
+// This loop creates background and color utility classes for each value in a
+// theme color palette.
+@each $token in $base-color-tokens {
+  .bg-#{$token} {
+    // Set the background color to the token.
+    background-color: var(--color-#{$token});
+
+    // Set the color for this background to the contrasting "on" color.
+    color: var(--color-on-#{$token});
+  }
+
+  .bg-on-#{$token} {
+    // Set the background color to the "on" token.
+    background-color: var(--color-on-#{$token});
+
+    // Set the color for this background to the contrasting color.
+    color: var(--color-#{$token});
+  }
+
+  .color-#{$token} {
+    color: var(--color-#{$token});
+  }
+
+  .color-on-#{$token} {
+    color: var(--color-on-#{$token});
+  }
+}
