@@ -1,0 +1,43 @@
+/* 🛑 STOP!
+  Do not change this file directly.
+  Modify colors in source/_data/colors-dark.js
+ */
+
+$color-primary: #ee3573 !default;
+$color-on-primary: #3B0012 !default;
+$color-secondary: #0ac6ff !default;
+$color-on-secondary: #2D4B6A !default;
+$color-tertiary: #07b051 !default;
+$color-on-tertiary: #4A2A0B !default;
+$color-background: #000000 !default;
+$color-on-background: #757575 !default;
+$color-foreground: #cecece !default;
+$color-on-foreground: #585858 !default;
+
+$base-color-tokens: ("primary", "secondary", "tertiary", "background", "foreground");
+
+$color-tokens: (
+  "color-primary": $color-primary,
+  "color-on-primary": $color-on-primary,
+  "color-secondary": $color-secondary,
+  "color-on-secondary": $color-on-secondary,
+  "color-tertiary": $color-tertiary,
+  "color-on-tertiary": $color-on-tertiary,
+  "color-background": $color-background,
+  "color-on-background": $color-on-background,
+  "color-foreground": $color-foreground,
+  "color-on-foreground": $color-on-foreground
+) !default;
+
+@mixin color-tokens() {
+  --color-primary: #{$color-primary};
+  --color-on-primary: #{$color-on-primary};
+  --color-secondary: #{$color-secondary};
+  --color-on-secondary: #{$color-on-secondary};
+  --color-tertiary: #{$color-tertiary};
+  --color-on-tertiary: #{$color-on-tertiary};
+  --color-background: #{$color-background};
+  --color-on-background: #{$color-on-background};
+  --color-foreground: #{$color-foreground};
+  --color-on-foreground: #{$color-on-foreground};
+}
