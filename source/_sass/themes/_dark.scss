@@ -69,4 +69,15 @@ $linkColorHover: $color-tertiary;
       font-size: 0.5em;
     }
   }
+
+  blockquote {
+    inline-size: 100%;
+    padding-inline-start: 1em;
+    border-inline-start: 10px solid var(--color-primary);
+    font-style: normal;
+    
+    cite {
+      font-size: 0.5em;
+    }
+  }
 }
