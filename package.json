@@ -1,5 +1,5 @@
 {
-  "name": "11ty-reveal",
+  "name": "talks",
   "version": "0.1.0",
   "description": "Eleventy-powered reveal.js slideshow generator",
   "author": "Reed Piernock",
@@ -32,6 +32,7 @@
   "scripts": {
     "tokens": "npx a11y-color-tokens --colorTokensPath='source/_data/colors.js' --outputDirPath='source/_sass/color' --compatibilityDocsPath='source/_sass/color'",
     "tokens:dark": "npx a11y-color-tokens --colorTokensPath='source/_data/colors-dark.js' --outputDirPath='source/_sass/color/dark' --compatibilityDocsPath='source/_sass/color/dark'",
+    "serve": "npx eleventy --serve",
     "build:gulp": "gulp",
     "build:11ty": "npx eleventy",
     "build:fresh": "npm-run-all tokens build:gulp build:11ty",
