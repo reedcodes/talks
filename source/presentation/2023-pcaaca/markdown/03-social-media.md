@@ -1,5 +1,4 @@
 {% slide "markdown" %}
-
 {% image "retweet.gif", "retweet" %}
 
 {% notes %}

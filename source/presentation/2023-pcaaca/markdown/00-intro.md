@@ -1,5 +1,4 @@
 {%- slide "markdown" -%}
-
 {% image "title.jpg", "Tragedy Girls" %}
 
 {% notes %}
