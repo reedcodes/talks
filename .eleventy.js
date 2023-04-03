@@ -25,6 +25,11 @@ module.exports = function( eleventyConfig ) {
     "./node_modules/reveal.js/dist/reveal.js*": "assets/js/",
     "./node_modules/reveal.js/plugin/": "assets/js/plugin/",
 
+    // Copy over FontAwesome SVGs.
+    "./node_modules/@fortawesome/fontawesome-free/sprites/brands.svg": "assets/images/fa-brands.svg",
+    "./node_modules/@fortawesome/fontawesome-free/sprites/regular.svg": "assets/images/fa-regular.svg",
+    "./node_modules/@fortawesome/fontawesome-free/sprites/solid.svg": "assets/images/fa-solid.svg",
+
     // Copy over local site assets. This is usually images used globally across
     // the entire site, e.g. logos or profile photos.
     "./source/_images/": "assets/images/",
@@ -52,6 +57,8 @@ module.exports = function( eleventyConfig ) {
   eleventyConfig.addPairedShortcode( "slide", require("./source/_config/shortcodes/slide.js") );
   eleventyConfig.addPairedShortcode( "notes", require("./source/_config/shortcodes/notes.js") );
   eleventyConfig.addPairedShortcode( "codeblock", require("./source/_config/shortcodes/code-block.js") );
+  eleventyConfig.addPairedShortcode( "columns", require("./source/_config/shortcodes/columns.js") );
+  eleventyConfig.addPairedShortcode( "column", require("./source/_config/shortcodes/column.js") );
 
   // Configuration.
   return {

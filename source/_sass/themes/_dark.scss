@@ -48,6 +48,11 @@ $linkColorHover: $color-tertiary;
     }
   }
 
+  svg {
+    --fillColor: yellow;
+    --strokeColor: lime;
+  }
+
   .title {
     --r-heading-color: var(--color-primary);
     
@@ -73,11 +78,17 @@ $linkColorHover: $color-tertiary;
   blockquote {
     inline-size: 100%;
     padding-inline-start: 1em;
-    border-inline-start: 10px solid var(--color-primary);
+    border-inline-start: 10px solid var(--color-tertiary);
     font-style: normal;
     
     cite {
       font-size: 0.5em;
     }
+  }
+
+  .columns {
+    display: flex;
+    gap: 1em;
+    align-items: center;
   }
 }
