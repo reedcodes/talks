@@ -48,9 +48,8 @@ $linkColorHover: $color-tertiary;
     }
   }
 
-  svg {
-    --fillColor: yellow;
-    --strokeColor: lime;
+  [class*="fa-"] {
+    color: var(--color-tertiary);
   }
 
   .title {
@@ -88,7 +87,7 @@ $linkColorHover: $color-tertiary;
 
   .columns {
     display: flex;
-    gap: 1em;
+    gap: 3em;
     align-items: center;
   }
 }

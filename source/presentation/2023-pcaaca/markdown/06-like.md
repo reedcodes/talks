@@ -5,13 +5,10 @@
 {% endcolumn %}
 
 {% column %}
-<svg class="fa-beat" style="--fa-animation-duration: 0.5s;">
-  <use href="/assets/images/fa-regular.svg#thumbs-up"></use>
-</svg>
 
-<svg class="fa-shake" style="--fa-animation-duration: 0.5s;">
-  <use href="/assets/images/fa-regular.svg#bell"></use>
-</svg>
+<span class="fa-regular fa-3x fa-thumbs-up fragment fade-left"></span>
+
+<span class="fa-regular fa-3x fa-bell fragment fade-left"></span>
 {% endcolumn %}
 {% endcolumns %}
 

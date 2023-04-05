@@ -26,9 +26,7 @@ module.exports = function( eleventyConfig ) {
     "./node_modules/reveal.js/plugin/": "assets/js/plugin/",
 
     // Copy over FontAwesome SVGs.
-    "./node_modules/@fortawesome/fontawesome-free/sprites/brands.svg": "assets/images/fa-brands.svg",
-    "./node_modules/@fortawesome/fontawesome-free/sprites/regular.svg": "assets/images/fa-regular.svg",
-    "./node_modules/@fortawesome/fontawesome-free/sprites/solid.svg": "assets/images/fa-solid.svg",
+    "./node_modules/@fortawesome/fontawesome-free/webfonts/": "assets/fa/",
 
     // Copy over local site assets. This is usually images used globally across
     // the entire site, e.g. logos or profile photos.
