@@ -2,13 +2,11 @@
 {% image "title.jpg", "Tragedy Girls" %}
 
 {% notes %}
-Hey, what's up, friends? It's ya boi, Reed, comin' atcha from San Antonio at this year's PCA conference. Today we're gonna talk about -- Tragedy Girls! It's the story of 2 teen girls dreaming of social media fame and realizing it through any means necessary, including... murder. So buckle up, we've got a lot to cover, as we analyze Tyler MacIntyre's film as an example of how the horror genre critiques social media through the lens of Debord's Spectacle.
+Hey, what's up, PCA? It's ya boi, Reed, comin' atcha from San Antonio at this year's conference. Today's episode is all about Tragedy Girls, Tyler McIntyre's 2017 film about 2 teen girls dreaming of social media fame and realizing it through any murderous means necessary. We're not just gonna talk about the movie; we're gonna get into Guy Debord's theory of the Spectacle, in particular his notions of images and celebrity. But to do that, we also gotta cover social media trends and the history of horror films, both through the lens of the Spectacle.
 
-But before we get started on the film, we need to go over some concepts: first, what exactly _is_ the Spectacle? How do celebrity, social media, and horror film each relate to the Spectacle and each other? and why is the _Tragedy Girls_ story so perfect for discussing all this?
+First some content notes, there are gifs galore, some graphicly gory screenshots from the film, and some sexual and/or violent language. Oh and spoilers for the movie.
 
-Content notes for screenshots of horror-movie blood and guts; sexual and violent language; spoilers for the film.
-
-OK with all that -- let's go.
+With that in mind, grab your popcorn and buckle up for a wild ride through horror movie tropes in the age of social media. Let's get started.
 {% endnotes %}
 
 {%- endslide -%}
