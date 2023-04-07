@@ -35,9 +35,7 @@ $linkColorHover: $color-tertiary;
     text-align: unset;
   }
 
-  img,
-  video,
-  iframe {
+  img {
     max-width: 100%;
     width: auto;
     max-height: 80vh;
@@ -46,6 +44,12 @@ $linkColorHover: $color-tertiary;
     &.profile {
       width: 150px;
     }
+  }
+
+  iframe {
+    aspect-ratio: var(--iframe-aspect, calc(16/9));
+    max-width: unset;
+    max-height: unset;
   }
 
   [class*="fa-"] {
