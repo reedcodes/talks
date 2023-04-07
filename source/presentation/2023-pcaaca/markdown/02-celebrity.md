@@ -1,8 +1,19 @@
 {% slide "markdown" %}
-{% image "high-five.gif", "high five" %}
+{% image "interview.gif", "interview" %}
 
 {% notes %}
-celebrity
+celebrity - Marx bourgeois ideology
+{% endnotes %}
+
+{% endslide %}
+
+
+
+{% slide "markdown" %}
+{% image "selfie.gif", "selfie" %}
+
+{% notes %}
+celebrity / fan relationship to end of section
 {% endnotes %}
 
 {% endslide %}
