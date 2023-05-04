@@ -98,4 +98,10 @@ $selectionColor: $color-tertiary;
       font-size: 0.5em;
     }
   }
+
+  .columns {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
 }

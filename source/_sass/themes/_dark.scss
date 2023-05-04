@@ -1,0 +1,91 @@
+@use '../color/dark/color-tokens' as *;
+@use '../settings/type' as *;
+@use 'reveal' as *;
+
+@import 'theme/template/mixins';
+@import 'theme/template/settings';
+
+$backgroundColor: $color-background;
+
+$mainColor: $color-foreground;
+$mainFont: $sans-serif;
+$blockMargin: min(2rem, 4vh);
+
+$headingMargin: 0 0 $blockMargin 0;
+$headingColor: $color-primary;
+$headingFont: $sans-serif;
+$headingLineHeight: var(--line-height);
+
+$heading1Size: var(--h1-font-size);
+$heading2Size: var(--h2-font-size);
+$heading3Size: var(--h3-font-size);
+$heading4Size: var(--h4-font-size);
+
+$codeFont: monospace;
+
+$linkColor: $color-secondary;
+$linkColorHover: $color-tertiary;
+
+@import 'theme/template/theme';
+
+.reveal {
+  --r-heading-font-weight: 900;
+
+  .slides {
+    text-align: unset;
+  }
+
+  img {
+    max-width: 100%;
+    width: auto;
+    max-height: 80vh;
+    margin-inline: auto;
+
+    &.profile {
+      width: 150px;
+    }
+  }
+
+  [class*="fa-"] {
+    color: var(--color-tertiary);
+  }
+
+  .title {
+    --r-heading-color: var(--color-primary);
+    
+    border-bottom: 5px solid var(--color-tertiary);
+    text-align: center;
+  }
+
+  .presenter {
+    width: fit-content;
+    margin-inline: auto;
+
+    p {
+      --r-block-margin: 0;
+      width: max-content;
+    }
+    
+    &-site,
+    &-role {
+      font-size: 0.5em;
+    }
+  }
+
+  blockquote {
+    inline-size: 100%;
+    padding-inline-start: 1em;
+    border-inline-start: 10px solid var(--color-tertiary);
+    font-style: normal;
+    
+    cite {
+      font-size: 0.5em;
+    }
+  }
+
+  .columns {
+    display: flex;
+    gap: 3em;
+    align-items: center;
+  }
+}
