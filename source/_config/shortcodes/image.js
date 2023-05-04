@@ -30,9 +30,12 @@ module.exports = async function( src, alt, link ) {
   // Set the metadata for this image, that 11ty will generate.
   const metadata = await Image(imageSrc, {
     widths: [300, 600, 900, 1200],
-    formats: ['webp', 'jpeg'],
+    formats: ['auto'],
     outputDir: `${outputDirectory}/images`,
     urlPath: `${this.page.url}/images`,
+    sharpOptions: {
+      animated: true
+    },
     filenameFormat: function (id, imageSrc, width, format, options) {
       const extension = path.extname(imageSrc);
       const name = path.basename(imageSrc, extension);
@@ -41,13 +44,27 @@ module.exports = async function( src, alt, link ) {
     }
   });
 
-  const lowsrc = metadata.jpeg[0];
-  const highsrc = metadata.jpeg[metadata.jpeg.length - 1];
+  // Get the image data we need to output the image. Check if the image is of
+  // type `gif`, `png`, or `jpg` (which is the default). There must be a better
+  // way to do this _and_ still output custom HTML, but this works right now, so
+  // I'll keep it until I have more time to devote to image functionality.
+  let imageData;
 
+  if(src.includes('.gif')) {
+    imageData = metadata.gif[metadata.gif.length - 1];
+  } else if(src.includes('.png')) {
+    imageData = metadata.png[metadata.png.length - 1];
+  } else {
+    imageData = metadata.jpeg[metadata.jpeg.length - 1];
+  }
+
+  // Set up the image output. The `picture` tag and `srcset` attributes allow
+  // more flexibility in what images are displayed in the browser.
   const picture = `<picture>${Object.values(metadata).map(imageFormat => {
     return `<source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(', ')}" sizes="100vw">`;
-  }).join('')}<img src="${lowsrc.url}" width="${highsrc.width}" height="${highsrc.height}" alt="${alt}" loading="lazy" decoding="async"></picture>`;
+  }).join('')}<img src="${imageData.url}" width="${imageData.width}" alt="${alt}" loading="lazy" decoding="async"></picture>`;
 
+  // If there is a link, wrap it around the image.
   const image_content = link ? `<a href="${link}">${picture}</a>` : picture;
 
   // Return the image. The output code is a `picture` with different source

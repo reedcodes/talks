@@ -25,13 +25,19 @@ module.exports = function( eleventyConfig ) {
     "./node_modules/reveal.js/dist/reveal.js*": "assets/js/",
     "./node_modules/reveal.js/plugin/": "assets/js/plugin/",
 
+    // Copy over FontAwesome SVGs.
+    "./node_modules/@fortawesome/fontawesome-free/webfonts/": "assets/fa/",
+
     // Copy over local site assets. This is usually images used globally across
     // the entire site, e.g. logos or profile photos.
     "./source/_images/": "assets/images/",
 
     // Copy over any webfonts used in slides. Public Sans is the default
     // typeface. https://github.com/uswds/public-sans
-    "./source/_webfonts/": "assets/webfonts/"
+    "./source/_webfonts/": "assets/webfonts/",
+
+    // Would like to keep videos with their own slides, but this is OK for now.
+    "./source/**/video/*.mp4": "assets/video/"
   } );
 
   // Add the 11ty navigation plugin.
@@ -52,6 +58,8 @@ module.exports = function( eleventyConfig ) {
   eleventyConfig.addPairedShortcode( "slide", require("./source/_config/shortcodes/slide.js") );
   eleventyConfig.addPairedShortcode( "notes", require("./source/_config/shortcodes/notes.js") );
   eleventyConfig.addPairedShortcode( "codeblock", require("./source/_config/shortcodes/code-block.js") );
+  eleventyConfig.addPairedShortcode( "columns", require("./source/_config/shortcodes/columns.js") );
+  eleventyConfig.addPairedShortcode( "column", require("./source/_config/shortcodes/column.js") );
 
   // Configuration.
   return {

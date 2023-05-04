@@ -15,6 +15,7 @@ const cssBuild = './site/assets/css';
 // Define CSS source paths from other locations, e.g. node modules. They can
 // then be `@use`d in Sass files without having to specify the entire path.
 const cssIncludePaths = [
+  './node_modules/@fortawesome/fontawesome-free/scss',
   './node_modules/include-media/dist',
   './node_modules/reveal.js/css',
   './node_modules/reveal.js/plugin'

@@ -1,0 +1,16 @@
+@use "color/dark/color-tokens" as *;
+@use 'settings';
+@use 'components';
+
+@use 'fontawesome' with ( $fa-font-path: '/assets/fa');
+@use 'brands' with ( $fa-font-path: '/assets/fa');
+@use 'regular' with ( $fa-font-path: '/assets/fa');
+@use 'solid' with ( $fa-font-path: '/assets/fa');
+
+@use 'themes/dark';
+
+
+
+:root {
+  @include color-tokens();
+}

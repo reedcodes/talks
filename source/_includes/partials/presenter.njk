@@ -6,8 +6,8 @@
   <div class="presenter-text sidebar-main">
     <p class="presenter-name">{{site.name}}</p>
     <p class="presenter-site"><a href="{{site.url | url}}">{{site.url}}</a></p>
-    {%- if site.role -%}
-      <p class="presenter-role">{{ site.role }}
+    {%- if role -%}
+      <p class="presenter-role">{{ role }}
         {%- if site.organization -%}<br>{{ site.organization }}{%- endif -%}
       </p>
     {%- endif -%}

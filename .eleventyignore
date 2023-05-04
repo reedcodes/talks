@@ -1,3 +1,5 @@
+source/_sass/**/*.md
+
 # The presentation layouts are written using Nunjucks, and include the Markdown
 # files needed for each presentation. Those files are excluded here, so 11ty
 # does not generate them separately.
