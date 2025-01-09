@@ -1,9 +1,10 @@
 @use '../color/dark/color-tokens' as *;
 @use '../settings/type' as *;
-@use 'reveal' as *;
 
-@import 'theme/template/mixins';
-@import 'theme/template/settings';
+@use '../../../node_modules/reveal.js/css/reveal' as *;
+
+@import '../../../node_modules/reveal.js/css/theme/template/mixins';
+@import '../../../node_modules/reveal.js/css/theme/template/settings';
 
 $backgroundColor: $color-background;
 
@@ -26,7 +27,7 @@ $codeFont: monospace;
 $linkColor: $color-secondary;
 $linkColorHover: $color-tertiary;
 
-@import 'theme/template/theme';
+@import '../../../node_modules/reveal.js/css/theme/template/theme';
 
 .reveal {
   --r-heading-font-weight: 900;

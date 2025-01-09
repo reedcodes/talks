@@ -7,4 +7,4 @@
 @use 'themes/default';
 
 // Add styles for code highlighting.
-@use 'highlight/monokai.css';
+@use '../../node_modules/reveal.js/plugin/highlight/monokai.css';

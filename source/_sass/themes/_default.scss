@@ -5,12 +5,12 @@
 
 // Use the reveal.js styles. They are included here so the Sass variables set
 // in that file can be used later in this file.
-@use 'reveal' as *;
+@use '../../../node_modules/reveal.js/css/reveal' as *;
 
 // Include the required mixins and settings. These need `@import` for now,
 // due to the way it includes and uses Sass variables.
-@import 'theme/template/mixins';
-@import 'theme/template/settings';
+@import '../../../node_modules/reveal.js/css/theme/template/mixins';
+@import '../../../node_modules/reveal.js/css/theme/template/settings';
 
 // Override theme settings from `theme/template/settings.scss`
   // `--color-*` props are set in `color/root-colors`.
@@ -42,7 +42,7 @@ $selectionColor: $color-tertiary;
 
 // Include the required theme template. This needs `@import` for now, due to
 // the way it includes the `exposer` css props.
-@import 'theme/template/theme';
+@import '../../../node_modules/reveal.js/css/theme/template/theme';
 
 // Further overrides of other sections of the layout.
 .reveal {
