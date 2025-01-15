@@ -32,6 +32,7 @@
   "scripts": {
     "tokens": "npx a11y-color-tokens --colorTokensPath='source/_data/colors.js' --outputDirPath='source/_sass/color' --compatibilityDocsPath='source/_sass/color'",
     "tokens:dark": "npx a11y-color-tokens --colorTokensPath='source/_data/colors-dark.js' --outputDirPath='source/_sass/color/dark' --compatibilityDocsPath='source/_sass/color/dark'",
+    "tokens:basement": "npx a11y-color-tokens --colorTokensPath='source/_data/colors-basement.js' --outputDirPath='source/_sass/color/basement' --compatibilityDocsPath='source/_sass/color/basement'",
     "serve": "npx eleventy --serve",
     "build:gulp": "gulp",
     "build:11ty": "npx eleventy",

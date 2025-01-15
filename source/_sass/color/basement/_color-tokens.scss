@@ -1,0 +1,43 @@
+/* 🛑 STOP!
+  Do not change this file directly.
+  Modify colors in source/_data/colors-basement.js
+ */
+
+$color-primary: #E18135 !default;
+$color-on-primary: #552400 !default;
+$color-secondary: #EDC55E !default;
+$color-on-secondary: #6A5214 !default;
+$color-tertiary: #D7E1EA !default;
+$color-on-tertiary: #59646E !default;
+$color-background: #351A11 !default;
+$color-on-background: #A28176 !default;
+$color-foreground: #F8E7DD !default;
+$color-on-foreground: #7C6558 !default;
+
+$base-color-tokens: ("primary", "secondary", "tertiary", "background", "foreground");
+
+$color-tokens: (
+  "color-primary": $color-primary,
+  "color-on-primary": $color-on-primary,
+  "color-secondary": $color-secondary,
+  "color-on-secondary": $color-on-secondary,
+  "color-tertiary": $color-tertiary,
+  "color-on-tertiary": $color-on-tertiary,
+  "color-background": $color-background,
+  "color-on-background": $color-on-background,
+  "color-foreground": $color-foreground,
+  "color-on-foreground": $color-on-foreground
+) !default;
+
+@mixin color-tokens() {
+  --color-primary: #{$color-primary};
+  --color-on-primary: #{$color-on-primary};
+  --color-secondary: #{$color-secondary};
+  --color-on-secondary: #{$color-on-secondary};
+  --color-tertiary: #{$color-tertiary};
+  --color-on-tertiary: #{$color-on-tertiary};
+  --color-background: #{$color-background};
+  --color-on-background: #{$color-on-background};
+  --color-foreground: #{$color-foreground};
+  --color-on-foreground: #{$color-on-foreground};
+}

@@ -6,15 +6,19 @@
 @import '../../../node_modules/reveal.js/css/theme/template/mixins';
 @import '../../../node_modules/reveal.js/css/theme/template/settings';
 
-$backgroundColor: $color-background;
+:root {
+  @include color-tokens();
+}
 
-$mainColor: $color-foreground;
-$mainFont: $sans-serif;
+$backgroundColor: $color-background !default;
+
+$mainColor: $color-foreground !default;
+$mainFont: $sans-serif !default;
 $blockMargin: min(2rem, 4vh);
 
 $headingMargin: 0 0 $blockMargin 0;
-$headingColor: $color-primary;
-$headingFont: $sans-serif;
+$headingColor: $color-primary !default;
+$headingFont: $sans-serif !default;
 $headingLineHeight: var(--line-height);
 
 $heading1Size: var(--h1-font-size);
@@ -24,8 +28,8 @@ $heading4Size: var(--h4-font-size);
 
 $codeFont: monospace;
 
-$linkColor: $color-secondary;
-$linkColorHover: $color-tertiary;
+$linkColor: $color-secondary !default;
+$linkColorHover: $color-tertiary !default;
 
 @import '../../../node_modules/reveal.js/css/theme/template/theme';
 

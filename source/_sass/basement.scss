@@ -1,0 +1,15 @@
+@use "color/basement/color-tokens" as *;
+@use 'settings';
+@use 'components';
+
+@use 'themes/dark' with (
+  $backgroundColor: $color-background,
+  $mainColor: $color-foreground,
+  $headingColor: $color-primary,
+  $linkColor: $color-secondary,
+  $linkColorHover: $color-on-background
+);
+
+:root {
+  @include color-tokens();
+}

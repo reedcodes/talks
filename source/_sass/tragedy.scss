@@ -8,9 +8,3 @@
 @use '../../node_modules/@fortawesome/fontawesome-free/scss/solid' with ( $fa-font-path: '/assets/fa');
 
 @use 'themes/dark';
-
-
-
-:root {
-  @include color-tokens();
-}
