@@ -36,9 +36,8 @@
     "serve": "npx eleventy --serve",
     "build:gulp": "gulp",
     "build:11ty": "npx eleventy",
-    "build:fresh": "npm-run-all tokens build:gulp build:11ty",
-    "build": "npm-run-all build:gulp build:11ty",
+    "build": "npm-run-all tokens tokens:* build:*",
     "clean:up": "rm -rf ./site/",
-    "clean": "npm-run-all clean:up tokens build:gulp build:11ty"
+    "clean": "npm-run-all clean:up build"
   }
 }
