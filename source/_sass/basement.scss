@@ -13,3 +13,12 @@
 :root {
   @include color-tokens();
 }
+
+.reveal {
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2em;
+    align-items: center;
+  }
+}
