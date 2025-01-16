@@ -78,7 +78,7 @@ This still counts as accessibility because even though the image is missing, the
 
 ### Search engine optimization
 
-{% image "broken-image.png", "This is a screenshot of google's search for sunflower, showing a row of images before text results." %}
+{% image "search-sunflower.png", "This is a screenshot of google's search for sunflower, showing a row of images before text results." %}
 
 {% notes %}
 Remember to read what's on screen!
