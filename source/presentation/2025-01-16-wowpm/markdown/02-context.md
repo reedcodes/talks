@@ -41,6 +41,12 @@ Images that are purely decorative do not necessarily need alt text. However, img
 
 {% endcolumn %}
 {% endcolumns %}
+
+{% notes %}
+Remember to read what's on screen!
+
+For instance, if this image is purely decorative -- i.e. it is included only to provide an interesting visual -- then alt text is not needed. The alt attribute is left empty to indicate to screen readers that this image can be skipped over.
+{% endnotes %}
 {%- endslide -%}
 
 
@@ -68,6 +74,12 @@ An informative image may accompany text content on the page and give additional 
 
 {% endcolumn %}
 {% endcolumns %}
+
+{% notes %}
+Remember to read what's on screen!
+
+If this image were included on a page about various types of flowers, then the purpose of this image is informational, and describing the details of what is included in the photo is more effective.
+{% endnotes %}
 {%- endslide -%}
 
 

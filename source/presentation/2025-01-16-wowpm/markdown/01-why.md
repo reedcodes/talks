@@ -10,7 +10,7 @@
 Remember to read what's on screen!
 
 1. accessibility: visually impaired users, people using screen reader software -- a11y is the most important reason for alt text
-1. not loading: slow internet connection, files moved or missing, users turned off images
+1. missing images: slow internet connection, files moved or missing, users turned off images
 1. SEO: should not be solely for this purpose but can provide extra context for content on the page
 {% endnotes %}
 
