@@ -44,7 +44,19 @@ People with visual disabilities using screen reader software need to be able to 
 
 ### Missing images
 
-<img alt="This is a missing image" src="missing.png">
+{% columns %}
+{% column %}
+{% image "broken-image.png", "" %}
+{% endcolumn %}
+{% column %}
+
+1. slow connections
+1. images turned off
+1. removed from server
+1. wonky scripts
+
+{% endcolumn %}
+{% endcolumns %}
 
 {% notes %}
 Remember to read what's on screen!
@@ -66,7 +78,7 @@ This still counts as accessibility because even though the image is missing, the
 
 ### Search engine optimization
 
-This is a screenshot of google's image search for coffee.
+{% image "broken-image.png", "This is a screenshot of google's search for sunflower, showing a row of images before text results." %}
 
 {% notes %}
 Remember to read what's on screen!

@@ -11,6 +11,7 @@
 {%- slide "markdown" -%}
 ## Image credits
 
-- [Cover Infographics](https://flic.kr/p/bwMqoJ) by [Stefan Leijon](https://www.flickr.com/photos/lionsthlm/)
-- [Sunflower](https://flic.kr/p/6PMX7w) by [skyseeker](https://www.flickr.com/photos/skyseeker/)
+- [Broken Image](https://thenounproject.com/browse/icons/term/broken-image/) by scarlett mckay from Noun Project (CC BY 3.0)
+- [Cover Infographics](https://flic.kr/p/bwMqoJ) by [Stefan Leijon](https://www.flickr.com/photos/lionsthlm/) (CC BY-ND 2.0)
+- [Sunflower](https://flic.kr/p/6PMX7w) by [skyseeker](https://www.flickr.com/photos/skyseeker/) (CC BY 2.0)
 {%- endslide -%}

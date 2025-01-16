@@ -15,6 +15,10 @@
 }
 
 .reveal {
+  img {
+    max-block-size: 50vh;
+    background-color: $color-foreground;
+  }
   .columns {
     display: grid;
     grid-template-columns: 1fr 2fr;
