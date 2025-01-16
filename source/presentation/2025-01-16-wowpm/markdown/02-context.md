@@ -101,7 +101,7 @@ Functional images _do_ something, so the alt text of the image should describe w
 {% endcolumn %}
 {% column %}
 
-`<a href="https://en.wikipedia.org/wiki/Common_sunflower"><img src="sunflower.jpg" alt="Read the wikipedia article about sunflowers"></a>`
+`<a href="/sunflowers/"><img src="sunflower.jpg" alt="Read the article about sunflowers"></a>`
 
 {% endcolumn %}
 {% endcolumns %}

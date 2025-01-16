@@ -24,7 +24,7 @@ This may involve restructuring the content to fit a narrative form, but providin
 {% endcolumn %}
 {% column %}
 
-`<a href="https://example.com/"><img src="infographic.jpg" alt="Read the full text content of this infographic."></a>`
+`<a href="/infographic/"><img src="infographic.jpg" alt="Read the full text content of this infographic."></a>`
 
 {% endcolumn %}
 {% endcolumns %}
